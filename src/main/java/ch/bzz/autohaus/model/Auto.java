@@ -1,8 +1,12 @@
 package ch.bzz.autohaus.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class Auto {
 
+    @JsonIgnore
     private Hersteller hersteller;
+
     private String modell;
     private double verbrauch;
     private int kilometerstand;
@@ -48,8 +52,7 @@ public class Auto {
 
     public void setLeistung(int leistung) {
         this.leistung = leistung;
-    }
-
+     }
     public double getPreis() {
         return preis;
     }

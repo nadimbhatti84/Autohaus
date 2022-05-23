@@ -2,6 +2,7 @@ package ch.bzz.autohaus.service;
 
 import ch.bzz.autohaus.data.DataHandler;
 import ch.bzz.autohaus.model.Auto;
+import ch.bzz.autohaus.model.Autohaus;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -15,17 +16,17 @@ import java.util.List;
 
 import static javax.ws.rs.core.MediaType.*;
 
-@Path("auto")
+@Path("autohaus")
 
-public class Autoservice {
+public class AutohausService {
     @Path("list")
     @GET
     @Produces(APPLICATION_JSON)
-    public Response listAutos () {
-        List<Auto> autoList = DataHandler.getInstance().readAllAutos();
+    public Response listAutohauser () {
+        List<Autohaus> autohausList = DataHandler.getInstance().readAllAutohauser();
         Response response = Response
                 .status(200)
-                .entity(autoList)
+                .entity(autohausList)
                 .build();
         return response;
     }
@@ -34,12 +35,12 @@ public class Autoservice {
     @Path("read")
     @GET
     @Produces(APPLICATION_JSON)
-    public Response readAuto(@QueryParam("id") String seriennummer) throws IllegalArgumentException{
-        if(DataHandler.getInstance().readAutoBySeriennummer(seriennummer) != null){
-            Auto auto = DataHandler.getInstance().readAutoBySeriennummer(seriennummer);
+    public Response readAutohaus(@QueryParam("id") String name) throws IllegalArgumentException{
+        if(DataHandler.getInstance().readAutohausByName(name) != null){
+            Autohaus autohaus = DataHandler.getInstance().readAutohausByName(name);
             Response response = Response
                     .status(200)
-                    .entity(auto)
+                    .entity(autohaus)
                     .build();
             return response;
         } else{
@@ -47,4 +48,5 @@ public class Autoservice {
         }
     }
 }
+
 

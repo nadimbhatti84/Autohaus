@@ -1,11 +1,15 @@
 package ch.bzz.autohaus.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Vector;
 
 public class Autohaus {
+    @JsonIgnore
+    private Vector<Auto> alleAutos;
+
     private String name;
     private String adresse;
-    private Vector<Auto> alleAutos;
 
     public String getName() {
         return name;
