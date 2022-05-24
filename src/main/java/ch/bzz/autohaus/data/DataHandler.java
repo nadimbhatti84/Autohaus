@@ -30,11 +30,13 @@ public class DataHandler {
         readAutohausJSON();
         setAutoList(new ArrayList<>());
         readAutoJSON();
+        setHerstellerList(new ArrayList<>());
+        readHerstellerJSON();
     }
 
     /**
      * gets the only instance of this class
-     * @return
+     * @return instance
      */
     public static DataHandler getInstance() {
         if (instance == null)
@@ -42,11 +44,19 @@ public class DataHandler {
         return instance;
     }
 
-
+    /**
+     * reads all hersteller
+     * @return list of hersteller
+     */
     public List<Hersteller> readAllHersteller(){
         return getHerstellerList();
     }
 
+    /**
+     * reads an Auto by its bezeichnung
+     * @param bezeichnung
+     * @return the Hersteller (null=not found)
+     */
     public Hersteller readHerstellerByBezeichnung(String bezeichnung){
         Hersteller hersteller = null;
         for (Hersteller entry : getHerstellerList()) {
@@ -57,8 +67,42 @@ public class DataHandler {
         return hersteller;
     }
 
+    /**
+     * reads the hersteller from the JSON-file
+     */
+    private void readHerstellerJSON() {
+        try {
+            byte[] jsonData = Files.readAllBytes(
+                    Paths.get(
+                            Config.getProperty("herstellerJSON")
+                    )
+            );
+            ObjectMapper objectMapper = new ObjectMapper();
+            Hersteller[] herstellers = objectMapper.readValue(jsonData, Hersteller[].class);
+            for (Hersteller hersteller : herstellers) {
+                getHerstellerList().add(hersteller);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * gets herstellerList
+     *
+     * @return value of herstellerList
+     */
     private List<Hersteller> getHerstellerList(){
         return herstellerList;
+    }
+
+    /**
+     * sets herstellerList
+     *
+     * @param herstellerList the value to set
+     */
+    private void setHerstellerList(List<Hersteller> herstellerList) {
+        this.herstellerList = herstellerList;
     }
 
 
@@ -77,6 +121,7 @@ public class DataHandler {
      */
     public Auto readAutoBySeriennummer(String seriennummer) {
         Auto auto = null;
+
         for (Auto entry : getAutoList()) {
             if (entry.getSeriennummer().equals(seriennummer)) {
                 auto = entry;
