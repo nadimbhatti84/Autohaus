@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "09e294d1-db49-4b9f-aa24-e954b51f6e9c",
+		"name": "Autohaus",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Autohaus list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Autohaus-1.0/resource/autohaus/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Autohaus-1.0",
+						"resource",
+						"autohaus",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Autohaus Read",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Autohaus-1.0/resource/autohaus/read?id=Autohaus Adelfingen",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Autohaus-1.0",
+						"resource",
+						"autohaus",
+						"read"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "Autohaus Adelfingen"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Autohaus Read Fehler",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Autohaus-1.0/resource/autohaus/read?id=Nadim",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Autohaus-1.0",
+						"resource",
+						"autohaus",
+						"read"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "Nadim"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auto list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Autohaus-1.0/resource/auto/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Autohaus-1.0",
+						"resource",
+						"auto",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auto Read",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Autohaus-1.0/resource/auto/read?id=SA223AB",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Autohaus-1.0",
+						"resource",
+						"auto",
+						"read"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "SA223AB"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auto Read Fehler",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Autohaus-1.0/resource/auto/read?id=1234567",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Autohaus-1.0",
+						"resource",
+						"auto",
+						"read"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1234567"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hersteller list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Autohaus-1.0/resource/hersteller/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Autohaus-1.0",
+						"resource",
+						"hersteller",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hersteller Read",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Autohaus-1.0/resource/hersteller/read?id=Mercedes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Autohaus-1.0",
+						"resource",
+						"hersteller",
+						"read"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "Mercedes"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hersteller Read Fehler",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Autohaus-1.0/resource/hersteller/read?id=Nadim",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Autohaus-1.0",
+						"resource",
+						"hersteller",
+						"read"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "Nadim"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

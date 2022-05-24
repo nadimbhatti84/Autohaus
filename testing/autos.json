@@ -1,0 +1,42 @@
+[
+ {
+  "modell": "C63s AMG",
+  "verbrauch": 11.8,
+  "kilometerstand": 113200,
+  "leistung": 510,
+  "preis": 51000,
+  "seriennummer": "SA392GR"
+ },
+ {
+  "modell": "Corvette C8",
+  "verbrauch": 13.1,
+  "kilometerstand": 150,
+  "leistung": 482,
+  "preis": 123300,
+  "seriennummer": "SA556AE"
+ },
+ {
+  "modell": "M4",
+  "verbrauch": 10.3,
+  "kilometerstand": 10,
+  "leistung": 510,
+  "preis": 123800,
+  "seriennummer": "SA982FD"
+ },
+ {
+  "modell": "R8",
+  "verbrauch": 13.6,
+  "kilometerstand": 8000,
+  "leistung": 540,
+  "preis": 149900,
+  "seriennummer": "SA223AB"
+ },
+ {
+  "modell": "Demon",
+  "verbrauch": 13.1,
+  "kilometerstand": 180,
+  "leistung": 840,
+  "preis": 176900,
+  "seriennummer": "SA674CC"
+ }
+]
