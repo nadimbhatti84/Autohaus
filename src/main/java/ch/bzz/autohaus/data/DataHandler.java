@@ -2,6 +2,7 @@ package ch.bzz.autohaus.data;
 
 import ch.bzz.autohaus.model.Auto;
 import ch.bzz.autohaus.model.Autohaus;
+import ch.bzz.autohaus.model.Hersteller;
 import ch.bzz.autohaus.service.Config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -19,6 +20,7 @@ public class DataHandler {
     private static DataHandler instance = null;
     private List<Auto> autoList;
     private List<Autohaus> autohauserList;
+    private List<Hersteller> herstellerList;
 
     /**
      * private constructor defeats instantiation
@@ -38,6 +40,25 @@ public class DataHandler {
         if (instance == null)
             instance = new DataHandler();
         return instance;
+    }
+
+
+    public List<Hersteller> readAllHersteller(){
+        return getHerstellerList();
+    }
+
+    public Hersteller readHerstellerByBezeichnung(String bezeichnung){
+        Hersteller hersteller = null;
+        for (Hersteller entry : getHerstellerList()) {
+            if (entry.getBezeichnung().equals(bezeichnung)) {
+                hersteller = entry;
+            }
+        }
+        return hersteller;
+    }
+
+    private List<Hersteller> getHerstellerList(){
+        return herstellerList;
     }
 
 
