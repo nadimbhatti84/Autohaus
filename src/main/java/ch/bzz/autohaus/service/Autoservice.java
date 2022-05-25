@@ -22,7 +22,7 @@ public class Autoservice {
     @GET
     @Produces(APPLICATION_JSON)
     public Response listAutos () {
-        List<Auto> autoList = DataHandler.getInstance().readAllAutos();
+        List<Auto> autoList = DataHandler.readAllAutos();
         Response response = Response
                 .status(200)
                 .entity(autoList)
@@ -35,8 +35,8 @@ public class Autoservice {
     @GET
     @Produces(APPLICATION_JSON)
     public Response readAuto(@QueryParam("id") String seriennummer) throws IllegalArgumentException{
-        if(DataHandler.getInstance().readAutoBySeriennummer(seriennummer) != null){
-            Auto auto = DataHandler.getInstance().readAutoBySeriennummer(seriennummer);
+        if(DataHandler.readAutoBySeriennummer(seriennummer) != null){
+            Auto auto = DataHandler.readAutoBySeriennummer(seriennummer);
             Response response = Response
                     .status(200)
                     .entity(auto)

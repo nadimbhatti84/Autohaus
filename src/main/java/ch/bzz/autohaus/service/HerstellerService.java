@@ -23,7 +23,7 @@ public class HerstellerService{
     @GET
     @Produces(APPLICATION_JSON)
     public Response listHerstelller () {
-        List<Hersteller> herstellerList = DataHandler.getInstance().readAllHersteller();
+        List<Hersteller> herstellerList = DataHandler.readAllHersteller();
         Response response = Response
                 .status(200)
                 .entity(herstellerList)
@@ -36,8 +36,8 @@ public class HerstellerService{
     @GET
     @Produces(APPLICATION_JSON)
     public Response readHersteller(@QueryParam("id") String bezeichnung) throws IllegalArgumentException{
-        if(DataHandler.getInstance().readHerstellerByBezeichnung(bezeichnung) != null){
-            Hersteller hersteller = DataHandler.getInstance().readHerstellerByBezeichnung(bezeichnung);
+        if(DataHandler.readHerstellerByBezeichnung(bezeichnung) != null){
+            Hersteller hersteller = DataHandler.readHerstellerByBezeichnung(bezeichnung);
             Response response = Response
                     .status(200)
                     .entity(hersteller)

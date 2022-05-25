@@ -5,9 +5,12 @@ import ch.bzz.autohaus.model.Autohaus;
 import ch.bzz.autohaus.model.Hersteller;
 import ch.bzz.autohaus.service.Config;
 
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -16,39 +19,23 @@ import java.util.List;
 /**
  * reads and writes the data in the JSON-files
  */
-public class DataHandler {
-    private static DataHandler instance = null;
-    private List<Auto> autoList;
-    private List<Autohaus> autohauserList;
-    private List<Hersteller> herstellerList;
+public final class DataHandler {
+    private static List<Auto> autoList;
+    private static List<Autohaus> autohauserList;
+    private static List<Hersteller> herstellerList;
 
     /**
      * private constructor defeats instantiation
      */
     private DataHandler() {
-        setAutohauserList(new ArrayList<>());
-        readAutohausJSON();
-        setAutoList(new ArrayList<>());
-        readAutoJSON();
-        setHerstellerList(new ArrayList<>());
-        readHerstellerJSON();
     }
 
-    /**
-     * gets the only instance of this class
-     * @return instance
-     */
-    public static DataHandler getInstance() {
-        if (instance == null)
-            instance = new DataHandler();
-        return instance;
-    }
 
     /**
      * reads all hersteller
      * @return list of hersteller
      */
-    public List<Hersteller> readAllHersteller(){
+    public static List<Hersteller> readAllHersteller(){
         return getHerstellerList();
     }
 
@@ -57,7 +44,7 @@ public class DataHandler {
      * @param bezeichnung
      * @return the Hersteller (null=not found)
      */
-    public Hersteller readHerstellerByBezeichnung(String bezeichnung){
+    public static Hersteller readHerstellerByBezeichnung(String bezeichnung){
         Hersteller hersteller = null;
         for (Hersteller entry : getHerstellerList()) {
             if (entry.getBezeichnung().equals(bezeichnung)) {
@@ -68,9 +55,60 @@ public class DataHandler {
     }
 
     /**
+     * inserts a new book into the herstellerList
+     * @param hersteller
+     */
+    public static void insertHersteller(Hersteller hersteller){
+        getHerstellerList().add(hersteller);
+        writeHerstellerJSON();
+    }
+
+    /**
+     * updates the herstellerList
+     */
+    public static void updateHersteller(){
+        writeHerstellerJSON();
+    }
+
+    /**
+     * deletes a hersteller identified by the bezeichnung
+     * @param bezeichnung
+     * @return
+     */
+    public static boolean deleteHersteller(String bezeichnung) {
+        Hersteller hersteller = readHerstellerByBezeichnung(bezeichnung);
+        if (bezeichnung != null) {
+            getHerstellerList().remove(bezeichnung);
+            writeHerstellerJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * writes the herstellerList to the JSON-File
+     */
+    private static void writeHerstellerJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String herstellerPath = Config.getProperty("herstellerJSON");
+        try {
+            fileOutputStream = new FileOutputStream(herstellerPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getHerstellerList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
      * reads the hersteller from the JSON-file
      */
-    private void readHerstellerJSON() {
+    private static void readHerstellerJSON() {
         try {
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(
@@ -92,7 +130,7 @@ public class DataHandler {
      *
      * @return value of herstellerList
      */
-    private List<Hersteller> getHerstellerList(){
+    private static List<Hersteller> getHerstellerList(){
         return herstellerList;
     }
 
@@ -101,8 +139,8 @@ public class DataHandler {
      *
      * @param herstellerList the value to set
      */
-    private void setHerstellerList(List<Hersteller> herstellerList) {
-        this.herstellerList = herstellerList;
+    private static void setHerstellerList(List<Hersteller> herstellerList) {
+        herstellerList = herstellerList;
     }
 
 
@@ -110,7 +148,7 @@ public class DataHandler {
      * reads all autos
      * @return list of autos
      */
-    public List<Auto> readAllAutos() {
+    public static List<Auto> readAllAutos() {
         return getAutoList();
     }
 
@@ -119,7 +157,7 @@ public class DataHandler {
      * @param seriennummer
      * @return the Auto (null=not found)
      */
-    public Auto readAutoBySeriennummer(String seriennummer) {
+    public static Auto readAutoBySeriennummer(String seriennummer) {
         Auto auto = null;
 
         for (Auto entry : getAutoList()) {
@@ -131,10 +169,62 @@ public class DataHandler {
     }
 
     /**
+     * inserts a new auto into the autoList
+     * @param auto
+     */
+    public static void insertAuto(Auto auto){
+        getAutoList().add(auto);
+        writeAutoJSON();
+    }
+
+    /**
+     * writes the autoList to the JSON-File
+     */
+    private static void writeAutoJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String herstellerPath = Config.getProperty("autoJSON");
+        try {
+            fileOutputStream = new FileOutputStream(herstellerPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getAutoList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * updates the autolist
+     */
+    public static void updateAuto(){
+        writeAutoJSON();
+    }
+
+    /**
+     * deletes a Auto identifies by the seriennummer
+     * @param seriennummer the key
+     * @return success = true / false
+     */
+    public static boolean deleteAuto(String seriennummer){
+        Auto auto = readAutoBySeriennummer(seriennummer);
+        if(auto != null){
+            getAutoList().remove(auto);
+            writeAutoJSON();
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
+    /**
      * reads all Autohäuser
      * @return list of autohauser
      */
-    public List<Autohaus> readAllAutohauser() {
+    public static List<Autohaus> readAllAutohauser() {
         return getAutohauserList();
     }
 
@@ -143,7 +233,7 @@ public class DataHandler {
      * @param autohausName
      * @return the Autohaus (null=not found)
      */
-    public Autohaus readAutohausByName(String autohausName) {
+    public static Autohaus readAutohausByName(String autohausName) {
         Autohaus autohaus = null;
         for (Autohaus entry : getAutohauserList()) {
             if (entry.getName().equals(autohausName)) {
@@ -154,9 +244,62 @@ public class DataHandler {
     }
 
     /**
+     * inserts a new autohaus into the autohauserList
+     *
+     * @param autohaus the book to be saved
+     */
+    public static void insertAutohaus(Autohaus autohaus) {
+        getAutohauserList().add(autohaus);
+        writeAutohauserJSON();
+    }
+
+    /**
+     * writes the autohauserList to the JSON-File
+     */
+    private static void writeAutohauserJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String herstellerPath = Config.getProperty("autohauserJSON");
+        try {
+            fileOutputStream = new FileOutputStream(herstellerPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getAutohauserList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * updates the autohauserList
+     */
+    public static void updateAutohauser() {
+        writeAutohauserJSON();
+    }
+
+
+    /**
+     * deletes an autohaus identified by the name
+     * @param name  the key
+     * @return  success=true/false
+     */
+    public static boolean deleteAutohauser(String name) {
+        Autohaus autohaus = readAutohausByName(name);
+        if (autohaus != null) {
+            getAutohauserList().remove(autohaus);
+            writeAutohauserJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
      * reads the autos from the JSON-file
      */
-    private void readAutoJSON() {
+    private static void readAutoJSON() {
         try {
             String path = Config.getProperty("autoJSON");
             byte[] jsonData = Files.readAllBytes(
@@ -175,7 +318,7 @@ public class DataHandler {
     /**
      * reads the autohauser from the JSON-file
      */
-    private void readAutohausJSON() {
+    private static void readAutohausJSON() {
         try {
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(
@@ -196,7 +339,7 @@ public class DataHandler {
      *
      * @return value of autoList
      */
-    private List<Auto> getAutoList() {
+    private static List<Auto> getAutoList() {
         return autoList;
     }
 
@@ -205,8 +348,8 @@ public class DataHandler {
      *
      * @param autoList the value to set
      */
-    private void setAutoList(List<Auto> autoList) {
-        this.autoList = autoList;
+    private static void setAutoList(List<Auto> autoList) {
+        autoList = autoList;
     }
 
     /**
@@ -214,7 +357,7 @@ public class DataHandler {
      *
      * @return value of autohauserList
      */
-    private List<Autohaus> getAutohauserList() {
+    private static List<Autohaus> getAutohauserList() {
         return autohauserList;
     }
 
@@ -223,7 +366,7 @@ public class DataHandler {
      *
      * @param autohauserList the value to set
      */
-    private void setAutohauserList(List<Autohaus> autohauserList) {
-        this.autohauserList = autohauserList;
+    private static void setAutohauserList(List<Autohaus> autohauserList) {
+        autohauserList = autohauserList;
     }
 }

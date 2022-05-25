@@ -23,7 +23,7 @@ public class AutohausService {
     @GET
     @Produces(APPLICATION_JSON)
     public Response listAutohauser () {
-        List<Autohaus> autohausList = DataHandler.getInstance().readAllAutohauser();
+        List<Autohaus> autohausList = DataHandler.readAllAutohauser();
         Response response = Response
                 .status(200)
                 .entity(autohausList)
@@ -36,8 +36,8 @@ public class AutohausService {
     @GET
     @Produces(APPLICATION_JSON)
     public Response readAutohaus(@QueryParam("id") String name) throws IllegalArgumentException{
-        if(DataHandler.getInstance().readAutohausByName(name) != null){
-            Autohaus autohaus = DataHandler.getInstance().readAutohausByName(name);
+        if(DataHandler.readAutohausByName(name) != null){
+            Autohaus autohaus = DataHandler.readAutohausByName(name);
             Response response = Response
                     .status(200)
                     .entity(autohaus)
