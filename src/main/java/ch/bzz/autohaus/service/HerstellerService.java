@@ -4,6 +4,8 @@ import ch.bzz.autohaus.data.DataHandler;
 import ch.bzz.autohaus.model.Auto;
 import ch.bzz.autohaus.model.Hersteller;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Application;
 import javax.ws.rs.core.MediaType;
@@ -34,7 +36,10 @@ public class HerstellerService{
     @Path("read")
     @GET
     @Produces(APPLICATION_JSON)
-    public Response readHersteller(@QueryParam("id") String bezeichnung) throws IllegalArgumentException{
+    public Response readHersteller(
+            @NotEmpty
+            @QueryParam("id") String bezeichnung
+    ) throws IllegalArgumentException{
         if(DataHandler.readHerstellerByBezeichnung(bezeichnung) != null){
             Hersteller hersteller = DataHandler.readHerstellerByBezeichnung(bezeichnung);
             Response response = Response
@@ -48,17 +53,18 @@ public class HerstellerService{
     }
     /**
      * deletes a Hersteller identified by its Name
-     * @param name
+     * @param bezeichnung
      * @return
      */
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteHersteller(
-            @QueryParam("id") String name
+            @NotEmpty
+            @QueryParam("id") String bezeichnung
     ){
         int httpStatus = 200;
-        if(!DataHandler.deleteHersteller(name)){
+        if(!DataHandler.deleteHersteller(bezeichnung)){
             httpStatus = 410;
         }
         return Response
@@ -69,21 +75,14 @@ public class HerstellerService{
 
     /**
      * inserts a new Hersteller
-     * @param bezeichnung
-     * @param hauptsitz
      * @return
      */
     @Path("create")
     @PUT
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertHersteller(
-            @FormParam("bezeichnung") String bezeichnung,
-            @FormParam("hauptsitz") String hauptsitz
+            @Valid @BeanParam Hersteller hersteller
     ) {
-        Hersteller hersteller = new Hersteller();
-        hersteller.setBezeichnung(bezeichnung);
-        hersteller.setHauptsitz(hauptsitz);
-
         DataHandler.insertHersteller(hersteller);
         return Response
                 .status(200)
@@ -94,21 +93,21 @@ public class HerstellerService{
     /**
      * updates a new Hersteller
      * @param bezeichnung
-     * @param hauptsitz
      * @return
      */
     @POST
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateHersteller(
-            @FormParam("bezeichnung") String bezeichnung,
-            @FormParam("hauptsitz") String hauptsitz
+            @Valid @BeanParam Hersteller hersteller,
+            @NotEmpty
+            @FormParam("id") String bezeichnung
     ){
         int httpStatus = 200;
-        Hersteller hersteller = DataHandler.readHerstellerByBezeichnung(bezeichnung);
-        if(hersteller != null){
-            hersteller.setHauptsitz(hauptsitz);
-            hersteller.setBezeichnung(bezeichnung);
+        Hersteller oldhersteller = DataHandler.readHerstellerByBezeichnung(hersteller.getBezeichnung());
+        if(oldhersteller != null){
+            oldhersteller.setHauptsitz(hersteller.getHauptsitz());
+            oldhersteller.setBezeichnung(hersteller.getBezeichnung());
             DataHandler.updateHersteller();
         }else{
             httpStatus = 410;

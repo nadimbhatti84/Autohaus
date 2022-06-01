@@ -1,7 +1,17 @@
 package ch.bzz.autohaus.model;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
+
 public class Hersteller {
+    @FormParam("bezeichnung")
+    @Size(min = 1, max = 30)
     private String bezeichnung;
+
+    @FormParam("hauptsitz")
+    @NotEmpty
+    @Size(min = 1, max = 30)
     private String hauptsitz;
 
     /**

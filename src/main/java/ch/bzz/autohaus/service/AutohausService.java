@@ -4,6 +4,8 @@ import ch.bzz.autohaus.data.DataHandler;
 import ch.bzz.autohaus.model.Auto;
 import ch.bzz.autohaus.model.Autohaus;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Application;
 import javax.ws.rs.core.MediaType;
@@ -34,7 +36,10 @@ public class AutohausService {
     @Path("read")
     @GET
     @Produces(APPLICATION_JSON)
-    public Response readAutohaus(@QueryParam("name") String name) throws IllegalArgumentException{
+    public Response readAutohaus(
+            @NotEmpty
+            @QueryParam("name") String name
+    ) throws IllegalArgumentException{
         if(DataHandler.readAutohausByName(name) != null){
             Autohaus autohaus = DataHandler.readAutohausByName(name);
             Response response = Response
@@ -56,6 +61,7 @@ public class AutohausService {
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteAutohaus(
+            @NotEmpty
             @QueryParam("name") String name
     ){
         int httpStatus = 200;
@@ -70,21 +76,14 @@ public class AutohausService {
 
     /**
      * inserts a new Autohaus
-     * @param name
-     * @param adresse
      * @return
      */
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertBook(
-            @FormParam("name") String name,
-            @FormParam("adresse") String adresse
+            @Valid @BeanParam Autohaus autohaus
     ) {
-        Autohaus autohaus = new Autohaus();
-        autohaus.setName(name);
-        autohaus.setAdresse(adresse);
-
         DataHandler.insertAutohaus(autohaus);
         return Response
                 .status(200)
@@ -96,21 +95,21 @@ public class AutohausService {
     /**
      * updates a new Autohaus
      * @param name
-     * @param adresse
      * @return
      */
     @Path("update")
     @PUT
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateBook(
-            @FormParam("name") String name,
-            @FormParam("adresse") String adresse
+            @Valid @BeanParam Autohaus autohaus,
+            @NotEmpty
+            @FormParam("name") String name
     ){
         int httpStatus = 200;
-        Autohaus autohaus = DataHandler.readAutohausByName(name);
-        if(autohaus != null){
-            autohaus.setAdresse(adresse);
-            autohaus.setName(name);
+        Autohaus oldautohaus = DataHandler.readAutohausByName(autohaus.getName());
+        if(oldautohaus != null){
+            oldautohaus.setAdresse(autohaus.getAdresse());
+            oldautohaus.setName(autohaus.getName());
             DataHandler.updateAutohauser();
         }else{
             httpStatus = 410;

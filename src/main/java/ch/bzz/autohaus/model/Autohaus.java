@@ -2,13 +2,22 @@ package ch.bzz.autohaus.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
 import java.util.Vector;
 
 public class Autohaus {
     @JsonIgnore
     private Vector<Auto> alleAutos;
 
+    @FormParam("name")
+    @Size(min = 2, max = 40)
     private String name;
+
+    @FormParam("adresse")
+    @NotEmpty
+    @Size(min = 4, max = 50)
     private String adresse;
 
     /**

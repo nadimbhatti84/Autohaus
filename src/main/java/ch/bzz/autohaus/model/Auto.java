@@ -2,16 +2,45 @@ package ch.bzz.autohaus.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.validation.constraints.*;
+import javax.ws.rs.FormParam;
+
 public class Auto {
 
     @JsonIgnore
     private Hersteller hersteller;
 
+    @FormParam("modell")
+    @NotEmpty
+    @Size(min = 1, max = 20)
     private String modell;
+
+    @FormParam("verbrauch")
+    @NotEmpty
+    @DecimalMax(value = "1.0")
+    @DecimalMin(value = "50.0")
     private double verbrauch;
+
+    @FormParam("kilometerstand")
+    @NotEmpty
+    @Min(0)
+    @Max(1000000)
     private int kilometerstand;
+
+    @FormParam("leistung")
+    @NotEmpty
+    @Min(1)
+    @Max(2000)
     private int leistung;
+
+    @FormParam("preis")
+    @NotEmpty
+    @DecimalMin(value = "10.0")
+    @DecimalMax(value = "20000000.0")
     private double preis;
+
+    @FormParam("seriennummer")
+    @Pattern(regexp = "SA[2-9]{3}[A-F]{2}")
     private String seriennummer;
 
     /**

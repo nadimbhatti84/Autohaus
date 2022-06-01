@@ -30,6 +30,14 @@ public final class DataHandler {
     private DataHandler() {
     }
 
+    /**
+     * initialize the lists with the data
+     */
+    public static void initLists() {
+        DataHandler.setHerstellerList(null);
+        DataHandler.setAutoList(null);
+        DataHandler.setAutohauserList(null);
+    }
 
     /**
      * reads all hersteller
@@ -131,6 +139,10 @@ public final class DataHandler {
      * @return value of herstellerList
      */
     private static List<Hersteller> getHerstellerList(){
+        if(herstellerList == null){
+            setHerstellerList(new ArrayList<>());
+            readHerstellerJSON();
+        }
         return herstellerList;
     }
 
@@ -140,7 +152,7 @@ public final class DataHandler {
      * @param herstellerList the value to set
      */
     private static void setHerstellerList(List<Hersteller> herstellerList) {
-        herstellerList = herstellerList;
+        DataHandler.herstellerList = herstellerList;
     }
 
 
@@ -340,6 +352,10 @@ public final class DataHandler {
      * @return value of autoList
      */
     private static List<Auto> getAutoList() {
+        if(autoList == null){
+            setAutoList(new ArrayList<>());
+            readAutoJSON();
+        }
         return autoList;
     }
 
@@ -349,7 +365,7 @@ public final class DataHandler {
      * @param autoList the value to set
      */
     private static void setAutoList(List<Auto> autoList) {
-        autoList = autoList;
+        DataHandler.autoList = autoList;
     }
 
     /**
@@ -358,6 +374,10 @@ public final class DataHandler {
      * @return value of autohauserList
      */
     private static List<Autohaus> getAutohauserList() {
+        if(autohauserList == null){
+            setAutohauserList(new ArrayList<>());
+            readAutohausJSON();
+        }
         return autohauserList;
     }
 
@@ -367,6 +387,6 @@ public final class DataHandler {
      * @param autohauserList the value to set
      */
     private static void setAutohauserList(List<Autohaus> autohauserList) {
-        autohauserList = autohauserList;
+        DataHandler.autohauserList = autohauserList;
     }
 }

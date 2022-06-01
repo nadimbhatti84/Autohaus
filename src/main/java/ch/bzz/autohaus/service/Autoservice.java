@@ -3,6 +3,9 @@ package ch.bzz.autohaus.service;
 import ch.bzz.autohaus.data.DataHandler;
 import ch.bzz.autohaus.model.Auto;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Application;
 import javax.ws.rs.core.MediaType;
@@ -33,7 +36,10 @@ public class Autoservice {
     @Path("read")
     @GET
     @Produces(APPLICATION_JSON)
-    public Response readAuto(@QueryParam("id") String seriennummer) throws IllegalArgumentException{
+    public Response readAuto(
+            @Pattern(regexp = "SA[2-9]{3}[A-F]{2}")
+            @NotEmpty
+            @QueryParam("id") String seriennummer) throws IllegalArgumentException{
         if(DataHandler.readAutoBySeriennummer(seriennummer) != null){
             Auto auto = DataHandler.readAutoBySeriennummer(seriennummer);
             Response response = Response
@@ -55,6 +61,8 @@ public class Autoservice {
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteAuto(
+            @Pattern(regexp = "SA[2-9]{3}[A-F]{2}")
+            @NotEmpty
             @QueryParam("id") String seriennummer
     ){
         int httpStatus = 200;
@@ -69,33 +77,14 @@ public class Autoservice {
 
     /**
      * inserts a new Auto
-     * @param modell
-     * @param verbrauch
-     * @param kilometerstand
-     * @param leistung
-     * @param preis
-     * @param seriennummer
      * @return
      */
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertAuto(
-            @FormParam("modell") String modell,
-            @FormParam("verbrauch") double verbrauch,
-            @FormParam("kilometerstand") int kilometerstand,
-            @FormParam("leistung") int leistung,
-            @FormParam("preis") double preis,
-            @FormParam("seriennummer") String seriennummer
+            @Valid @BeanParam Auto auto
     ) {
-        Auto auto = new Auto();
-        auto.setModell(modell);
-        auto.setVerbrauch(verbrauch);
-        auto.setKilometerstand(kilometerstand);
-        auto.setLeistung(leistung);
-        auto.setPreis(preis);
-        auto.setSeriennummer(seriennummer);
-
         DataHandler.insertAuto(auto);
         return Response
                 .status(200)
@@ -105,11 +94,6 @@ public class Autoservice {
 
     /**
      * updates a new Auto
-     * @param modell
-     * @param verbrauch
-     * @param kilometerstand
-     * @param leistung
-     * @param preis
      * @param seriennummer
      * @return
      */
@@ -117,21 +101,19 @@ public class Autoservice {
     @PUT
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateAuto(
-            @FormParam("modell") String modell,
-            @FormParam("verbrauch") double verbrauch,
-            @FormParam("kilometerstand") int kilometerstand,
-            @FormParam("leistung") int leistung,
-            @FormParam("preis") double preis,
+            @Valid @BeanParam Auto auto,
+            @NotEmpty
+            @Pattern(regexp = "SA[2-9]{3}[A-F]{2}")
             @FormParam("seriennummer") String seriennummer
     ){
         int httpStatus = 200;
-        Auto auto = DataHandler.readAutoBySeriennummer(seriennummer);
-        if(auto != null){
-            auto.setModell(modell);
-            auto.setVerbrauch(verbrauch);
-            auto.setKilometerstand(kilometerstand);
-            auto.setLeistung(leistung);
-            auto.setPreis(preis);
+        Auto oldauto = DataHandler.readAutoBySeriennummer(auto.getSeriennummer());
+        if(oldauto != null){
+            auto.setModell(auto.getModell());
+            auto.setVerbrauch(auto.getVerbrauch());
+            auto.setKilometerstand(auto.getKilometerstand());
+            auto.setLeistung(auto.getLeistung());
+            auto.setPreis(auto.getPreis());
             auto.setSeriennummer(seriennummer);
             DataHandler.updateAuto();
         }else{
