@@ -1,50 +1,53 @@
-package ch.bzz.autohaus.service;
+package ch.bzz.dealership.service;
 
-import ch.bzz.autohaus.data.DataHandler;
-import ch.bzz.autohaus.model.Auto;
+import ch.bzz.dealership.data.DataHandler;
+import ch.bzz.dealership.model.Car;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.ws.rs.*;
-import javax.ws.rs.core.Application;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import java.math.BigDecimal;
 import java.util.List;
-import java.util.UUID;
 
 import static javax.ws.rs.core.MediaType.*;
 
-@Path("auto")
+@Path("car")
 
-public class Autoservice {
+public class CarService {
     @Path("list")
     @GET
     @Produces(APPLICATION_JSON)
-    public Response listAutos () {
-        List<Auto> autoList = DataHandler.readAllAutos();
+    public Response listCar () {
+        List<Car> carList = DataHandler.readAllCars();
         Response response = Response
                 .status(200)
-                .entity(autoList)
+                .entity(carList)
                 .build();
         return response;
     }
 
 
+    /**
+     * reads a car by its Serial Number
+     * @param serialNum
+     * @return
+     * @throws IllegalArgumentException
+     */
     @Path("read")
     @GET
     @Produces(APPLICATION_JSON)
-    public Response readAuto(
+    public Response readCar(
             @Pattern(regexp = "SA[2-9]{3}[A-F]{2}")
             @NotEmpty
-            @QueryParam("id") String seriennummer) throws IllegalArgumentException{
-        if(DataHandler.readAutoBySeriennummer(seriennummer) != null){
-            Auto auto = DataHandler.readAutoBySeriennummer(seriennummer);
+            @QueryParam("id") String serialNum) throws IllegalArgumentException{
+        if(DataHandler.readCarBySerialNum(serialNum) != null){
+            Car car = DataHandler.readCarBySerialNum(serialNum);
             Response response = Response
                     .status(200)
-                    .entity(auto)
+                    .entity(car)
                     .build();
             return response;
         } else{
@@ -53,20 +56,20 @@ public class Autoservice {
     }
 
     /**
-     * deletes an Auto identified by its Seriennummer
-     * @param seriennummer
+     * deletes a car identified by its serial number
+     * @param serialNum
      * @return
      */
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response deleteAuto(
+    public Response deleteCar(
             @Pattern(regexp = "SA[2-9]{3}[A-F]{2}")
             @NotEmpty
-            @QueryParam("id") String seriennummer
+            @QueryParam("id") String serialNum
     ){
         int httpStatus = 200;
-        if(!DataHandler.deleteAuto(seriennummer)){
+        if(!DataHandler.deleteAuto(serialNum)){
             httpStatus = 410;
         }
         return Response
@@ -76,16 +79,16 @@ public class Autoservice {
     }
 
     /**
-     * inserts a new Auto
+     * inserts a new car
      * @return
      */
     @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response insertAuto(
-            @Valid @BeanParam Auto auto
+    public Response insertCar(
+            @Valid @BeanParam Car car
     ) {
-        DataHandler.insertAuto(auto);
+        DataHandler.insertCar(car);
         return Response
                 .status(200)
                 .entity("")
@@ -93,29 +96,29 @@ public class Autoservice {
     }
 
     /**
-     * updates a new Auto
-     * @param seriennummer
+     * updates a new car
+     * @param serialNum
      * @return
      */
     @Path("update")
     @PUT
     @Produces(MediaType.TEXT_PLAIN)
-    public Response updateAuto(
-            @Valid @BeanParam Auto auto,
+    public Response updateCar(
+            @Valid @BeanParam Car car,
             @NotEmpty
             @Pattern(regexp = "SA[2-9]{3}[A-F]{2}")
-            @FormParam("seriennummer") String seriennummer
+            @FormParam("serialNum") String serialNum
     ){
         int httpStatus = 200;
-        Auto oldauto = DataHandler.readAutoBySeriennummer(auto.getSeriennummer());
-        if(oldauto != null){
-            auto.setModell(auto.getModell());
-            auto.setVerbrauch(auto.getVerbrauch());
-            auto.setKilometerstand(auto.getKilometerstand());
-            auto.setLeistung(auto.getLeistung());
-            auto.setPreis(auto.getPreis());
-            auto.setSeriennummer(seriennummer);
-            DataHandler.updateAuto();
+        Car oldcar = DataHandler.readCarBySerialNum(car.getSerialNum());
+        if(oldcar != null){
+            oldcar.setModel(car.getModel());
+            oldcar.setConsumption(car.getConsumption());
+            oldcar.setMileage(car.getMileage());
+            oldcar.setHorsepower(car.getHorsepower());
+            oldcar.setPrice(car.getPrice());
+            oldcar.setSerialNum(serialNum);
+            DataHandler.updateCar();
         }else{
             httpStatus = 410;
         }

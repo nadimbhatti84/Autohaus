@@ -1,6 +1,6 @@
-package ch.bzz.autohaus.service;
+package ch.bzz.dealership.service;
 
-import ch.bzz.autohaus.data.DataHandler;
+import ch.bzz.dealership.data.DataHandler;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

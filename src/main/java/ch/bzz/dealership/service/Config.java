@@ -1,6 +1,4 @@
-package ch.bzz.autohaus.service;
-
-import ch.bzz.autohaus.service.TestService;
+package ch.bzz.dealership.service;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
@@ -30,9 +28,9 @@ public class Config extends Application {
     public Set<Class<?>> getClasses() {
         HashSet providers = new HashSet<Class<?>>();
         providers.add(TestService.class);
-        providers.add(Autoservice.class);
-        providers.add(AutohausService.class);
-        providers.add(HerstellerService.class);
+        providers.add(CarService.class);
+        providers.add(DealershipService.class);
+        providers.add(ProducerService.class);
         return providers;
     }
 

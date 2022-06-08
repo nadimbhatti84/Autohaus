@@ -1,4 +1,4 @@
-package ch.bzz.autohaus.model;
+package ch.bzz.dealership.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -7,21 +7,21 @@ import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
 import java.util.Vector;
 
-public class Autohaus {
+public class Dealership {
     @JsonIgnore
-    private Vector<Auto> alleAutos;
+    private Vector<Car> allCars;
 
     @FormParam("name")
     @Size(min = 2, max = 40)
     private String name;
 
-    @FormParam("adresse")
+    @FormParam("adress")
     @NotEmpty
     @Size(min = 4, max = 50)
-    private String adresse;
+    private String adress;
 
     /**
-     * gets Name
+     * gets name
      * @return name
      */
     public String getName() {
@@ -38,36 +38,36 @@ public class Autohaus {
     }
 
     /**
-     * gets Adresse
-     * @return adresse
+     * gets Adress
+     * @return adress
      */
-    public String getAdresse() {
-        return adresse;
+    public String getAdress() {
+        return adress;
     }
 
     /**
-     * sets adresse
+     * sets adress
      *
-     * @param adresse the value to set
+     * @param adress the value to set
      */
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
+    public void setAdress(String adress) {
+        this.adress = adress;
     }
 
     /**
-     * gets alle Autos als Vector
-     * @return alleAutos
+     * gets all cars as a Vector
+     * @return allCars
      */
-    public Vector<Auto> getAlleAutos() {
-        return alleAutos;
+    public Vector<Car> getAllCars() {
+        return allCars;
     }
 
     /**
-     * sets alleAutos
+     * sets allCars
      *
-     * @param alleAutos the value to set
+     * @param allCars the value to set
      */
-    public void setAlleAutos(Vector<Auto> alleAutos) {
-        this.alleAutos = alleAutos;
+    public void setAlleAutos(Vector<Car> allCars) {
+        this.allCars = allCars;
     }
 }

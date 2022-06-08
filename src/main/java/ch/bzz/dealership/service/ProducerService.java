@@ -1,33 +1,30 @@
-package ch.bzz.autohaus.service;
+package ch.bzz.dealership.service;
 
-import ch.bzz.autohaus.data.DataHandler;
-import ch.bzz.autohaus.model.Auto;
-import ch.bzz.autohaus.model.Autohaus;
+import ch.bzz.dealership.data.DataHandler;
+import ch.bzz.dealership.model.Dealership;
+import ch.bzz.dealership.model.Producer;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.ws.rs.*;
-import javax.ws.rs.core.Application;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import java.math.BigDecimal;
 import java.util.List;
-import java.util.UUID;
 
 import static javax.ws.rs.core.MediaType.*;
 
-@Path("autohaus")
+@Path("producer")
 
-public class AutohausService {
+public class ProducerService{
     @Path("list")
     @GET
     @Produces(APPLICATION_JSON)
-    public Response listAutohauser () {
-        List<Autohaus> autohausList = DataHandler.readAllAutohauser();
+    public Response listProducer () {
+        List<Producer> producerList = DataHandler.readAllProducer();
         Response response = Response
                 .status(200)
-                .entity(autohausList)
+                .entity(producerList)
                 .build();
         return response;
     }
@@ -36,36 +33,35 @@ public class AutohausService {
     @Path("read")
     @GET
     @Produces(APPLICATION_JSON)
-    public Response readAutohaus(
+    public Response readProducer(
             @NotEmpty
-            @QueryParam("name") String name
+            @QueryParam("id") String name
     ) throws IllegalArgumentException{
-        if(DataHandler.readAutohausByName(name) != null){
-            Autohaus autohaus = DataHandler.readAutohausByName(name);
+        if(DataHandler.readProducerByName(name) != null){
+            Producer producer = DataHandler.readProducerByName(name);
             Response response = Response
                     .status(200)
-                    .entity(autohaus)
+                    .entity(producer)
                     .build();
             return response;
         } else{
             throw new IllegalArgumentException();
         }
     }
-
     /**
-     * deletes an Autohaus identified by its Name
+     * deletes a producer identified by its Name
      * @param name
      * @return
      */
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response deleteAutohaus(
+    public Response deleteProducer(
             @NotEmpty
-            @QueryParam("name") String name
+            @QueryParam("id") String name
     ){
         int httpStatus = 200;
-        if(!DataHandler.deleteAutohauser(name)){
+        if(!DataHandler.deleteHersteller(name)){
             httpStatus = 410;
         }
         return Response
@@ -75,42 +71,41 @@ public class AutohausService {
     }
 
     /**
-     * inserts a new Autohaus
+     * inserts a new producer
      * @return
      */
-    @POST
     @Path("create")
+    @PUT
     @Produces(MediaType.TEXT_PLAIN)
-    public Response insertBook(
-            @Valid @BeanParam Autohaus autohaus
+    public Response insertProducer(
+            @Valid @BeanParam Producer producer
     ) {
-        DataHandler.insertAutohaus(autohaus);
+        DataHandler.insertProducer(producer);
         return Response
                 .status(200)
                 .entity("")
                 .build();
     }
 
-
     /**
-     * updates a new Autohaus
+     * updates a new producer
      * @param name
      * @return
      */
+    @POST
     @Path("update")
-    @PUT
     @Produces(MediaType.TEXT_PLAIN)
-    public Response updateBook(
-            @Valid @BeanParam Autohaus autohaus,
+    public Response updateProducer(
+            @Valid @BeanParam Producer producer,
             @NotEmpty
             @FormParam("name") String name
     ){
         int httpStatus = 200;
-        Autohaus oldautohaus = DataHandler.readAutohausByName(autohaus.getName());
-        if(oldautohaus != null){
-            oldautohaus.setAdresse(autohaus.getAdresse());
-            oldautohaus.setName(autohaus.getName());
-            DataHandler.updateAutohauser();
+        Producer oldproducer = DataHandler.readProducerByName(producer.getName());
+        if(oldproducer != null){
+            oldproducer.setHeadquarter(producer.getHeadquarter());
+            oldproducer.setName(producer.getName());
+            DataHandler.updateProducer();
         }else{
             httpStatus = 410;
         }
