@@ -1,42 +1,42 @@
 [
  {
-  "modell": "C63s AMG",
-  "verbrauch": 11.8,
-  "kilometerstand": 113200,
-  "leistung": 510,
-  "preis": 51000,
-  "seriennummer": "SA392GR"
+  "model": "C63s AMG",
+  "consumption": 11.8,
+  "mileage": 113200,
+  "horsepower": 510,
+  "price": 51000,
+  "serialNum": "SA392GR"
  },
  {
-  "modell": "Corvette C8",
-  "verbrauch": 13.1,
-  "kilometerstand": 150,
-  "leistung": 482,
-  "preis": 123300,
-  "seriennummer": "SA556AE"
+  "model": "Corvette C8",
+  "consumption": 13.1,
+  "mileage": 150,
+  "horsepower": 482,
+  "price": 123300,
+  "serialNum": "SA556AE"
  },
  {
-  "modell": "M4",
-  "verbrauch": 10.3,
-  "kilometerstand": 10,
-  "leistung": 510,
-  "preis": 123800,
-  "seriennummer": "SA982FD"
+  "model": "M4",
+  "consumption": 10.3,
+  "mileage": 10,
+  "horsepower": 510,
+  "price": 123800,
+  "serialNum": "SA982FD"
  },
  {
-  "modell": "R8",
-  "verbrauch": 13.6,
-  "kilometerstand": 8000,
-  "leistung": 540,
-  "preis": 149900,
-  "seriennummer": "SA223AB"
+  "model": "R8",
+  "consumption": 13.6,
+  "mileage": 8000,
+  "horsepower": 540,
+  "price": 149900,
+  "serialNum": "SA223AB"   
  },
  {
-  "modell": "Demon",
-  "verbrauch": 13.1,
-  "kilometerstand": 180,
-  "leistung": 840,
-  "preis": 176900,
-  "seriennummer": "SA674CC"
+  "model": "Demon",
+  "consumption": 13.1,
+  "mileage": 180,
+  "horsepower": 840,
+  "price": 176900,
+  "serialNum": "SA674CC"
  }
 ]

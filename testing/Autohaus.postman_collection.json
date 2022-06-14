@@ -1,0 +1,3380 @@
+{
+	"info": {
+		"_postman_id": "09e294d1-db49-4b9f-aa24-e954b51f6e9c",
+		"name": "Autohaus",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Dealership",
+			"item": [
+				{
+					"name": "Dealership list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/dealership/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"dealership",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Dealership Read",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Autohaus Read\")"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/dealership/read?name=Autohaus Adelfingen",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"dealership",
+								"read"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Autohaus Adelfingen"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Dealership Read Fail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/dealership/read?name=Nadim",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"dealership",
+								"read"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Nadim"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Dealership",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/dealership/delete?name=Autohaus Adertal",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"dealership",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Autohaus Adertal"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Dealership Fail",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/dealership/delete?name=Autohaus Adertalien",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"dealership",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Autohaus Adertalien"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Dealership",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Autohaus Strassenapotheker",
+									"type": "text"
+								},
+								{
+									"key": "adress",
+									"value": "Langstrasse 187",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/dealership/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"dealership",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Dealership Fail: name = null",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "adress",
+									"value": "Langstrasse 187",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/dealership/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"dealership",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Dealership Fail: name too small",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "c",
+									"type": "text"
+								},
+								{
+									"key": "adress",
+									"value": "Langstrasse 187",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/dealership/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"dealership",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Dealership Fail: name too big",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "jdsfvidsvuisdvhuisdhfviudhvpuispvusivhsudhvuvhsdipvdnsciwcbsvubsvubuos",
+									"type": "text"
+								},
+								{
+									"key": "adress",
+									"value": "Langstrasse 187",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/dealership/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"dealership",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Dealership Fail: adress = null",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": " Autohaus Nadim",
+									"type": "text"
+								},
+								{
+									"key": "adress",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/dealership/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"dealership",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Dealership Fail: adress too small",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": " Autohaus Nadim",
+									"type": "text"
+								},
+								{
+									"key": "adress",
+									"value": "s",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/dealership/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"dealership",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Dealership Fail: adress too big",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": " Autohaus Nadim",
+									"type": "text"
+								},
+								{
+									"key": "adress",
+									"value": "asbviabdvuibavbadvbviusdbvusbvuisbfviusvbiusvbuisvbisuvuibvdsvbsuivbsduivbv",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/dealership/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"dealership",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Dealership",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Autohaus Adertal",
+									"type": "text"
+								},
+								{
+									"key": "adress",
+									"value": "Langstrasse 187",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/dealership/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"dealership",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Car Fail: name = null",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "adress",
+									"value": "Langstrasse 187",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/dealership/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"dealership",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Dealership Fail: name too small",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "c",
+									"type": "text"
+								},
+								{
+									"key": "adress",
+									"value": "Langstrasse 187",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/dealership/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"dealership",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Dealership Fail: name too big",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "jdsfvidsvuisdvhuisdhfviudhvpuispvusivhsudhvuvhsdipvdnsciwcbsvubsvubuos",
+									"type": "text"
+								},
+								{
+									"key": "adress",
+									"value": "Langstrasse 187",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/dealership/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"dealership",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Dealership Fail: adress = null",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": " Autohaus Nadim",
+									"type": "text"
+								},
+								{
+									"key": "adress",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/dealership/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"dealership",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Dealership Fail: adress too small",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": " Autohaus Nadim",
+									"type": "text"
+								},
+								{
+									"key": "adress",
+									"value": "s",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/dealership/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"dealership",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Dealership Fail: adress too big",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": " Autohaus Nadim",
+									"type": "text"
+								},
+								{
+									"key": "adress",
+									"value": "asbviabdvuibavbadvbviusdbvusbvuisbfviusvbiusvbuisvbisuvuibvdsvbsuivbsduivbv",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/dealership/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"dealership",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Car",
+			"item": [
+				{
+					"name": "Car list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Car Read",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/read?id=SA223AB",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"read"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "SA223AB"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Car Read Fail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/read?id=1234567",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"read"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1234567"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Car",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/delete?id=SA982FD",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "SA982FD"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Car Fail",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/delete?id=SA982FDQQNDDR",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "SA982FDQQNDDR"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Car",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "13.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "176000",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Car Fail: Model = null",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "13.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "176000",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Car Fail: Model too big",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": " dchbsdhfvbsdhbvsdubvsvbdsuvbzvbdsvubdsdv",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "13.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "176000",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Car Fail: Consumption = null",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "176000",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Car Fail: Consumption too small",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "0.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "176000",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Car Fail: Consumption too big",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "2113.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "176000",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Car Fail: Mileage = null",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "2113.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "176000",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Car Fail: Mileage too small",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "13.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "-300",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "176000",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Car Fail: Mileage too big",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "13.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "3001331",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "176000",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Car Fail: Horsepower = null",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "13.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "176000",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Car Fail: Horsepower too small",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "13.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "-200",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "176000",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Car Fail: Horsepower too big",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "13.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "200625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "176000",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Car Fail: Price = null",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "13.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Car Fail: Price too small",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "13.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Car Fail: Price too big",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "13.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "123412412",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Car Fail: Serial Number = null",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "13.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "178000",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Car Fail: Serial Number not valid",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "13.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "178000",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "Nadim",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Car",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "13.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "90000",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "176000",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Car Fail",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "13.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "176000",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DEXXD",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Car Fail: Model = null",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "13.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "176000",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Car Fail: Model too big",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": " dchbsdhfvbsdhbvsdubvsvbdsuvbzvbdsvubdsdv",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "13.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "176000",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Car Fail: Consumption = null",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "176000",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Car Fail: Consumption too small",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "0.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "176000",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Car Fail: Consumption too big",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "2113.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "176000",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Car Fail: Mileage = null",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "2113.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "176000",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Car Fail: Mileage too small",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "13.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "-300",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "176000",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Car Fail: Mileage too big",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "13.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "3001331",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "176000",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Car Fail: Horsepower = null",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "13.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "176000",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Car Fail: Horsepower too small",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "13.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "-200",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "176000",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Car Fail: Horsepower too big",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "13.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "200625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "176000",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Car Fail: Price = null",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "13.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Car Fail: Price too small",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "13.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Car Fail: Price too big",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "13.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "123412412",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "SA765DE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Car Fail: serial Number = null",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "13.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "178000",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Car Fail: Serial Number is not valid",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "model",
+									"value": "M5cs",
+									"type": "text"
+								},
+								{
+									"key": "consumption",
+									"value": "13.2",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "300",
+									"type": "text"
+								},
+								{
+									"key": "horsepower",
+									"value": "625",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "178000",
+									"type": "text"
+								},
+								{
+									"key": "serialNum",
+									"value": "Nadim",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"car",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Producer",
+			"item": [
+				{
+					"name": "Producer list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/producer/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"producer",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Producer Read",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/producer/read?name=Mercedes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"producer",
+								"read"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Mercedes"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Producer Read Fail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/producer/read?name=Nadim",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"producer",
+								"read"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Nadim"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Producer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/producer/delete?name=Audi",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"producer",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Audi"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Producer Fail",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/producer/delete?name=PenisPorsche",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"producer",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "PenisPorsche"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Producer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Honda",
+									"type": "text"
+								},
+								{
+									"key": "headquarter",
+									"value": "Minato, Tokio",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/producer/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"producer",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Producer Fail: Name = null",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "headquarter",
+									"value": "Altstetten",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/producer/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"producer",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Producer Fail: Name to big",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "fdbsvshdbvuhbdsbfvuvbdsubvzvdszvbvfvbsdzbvfdsbfvus",
+									"type": "text"
+								},
+								{
+									"key": "headquarter",
+									"value": "blablabla",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/producer/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"producer",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Producer Fail: Headquarter = null",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "nonono",
+									"type": "text"
+								},
+								{
+									"key": "headquarter",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/producer/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"producer",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Producer Fail: Headquarter too big",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "nonono",
+									"type": "text"
+								},
+								{
+									"key": "headquarter",
+									"value": "jsdnfvusidbviusnvbödsvbuivbpsivsiuvbdsuvbvudpf",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/producer/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"producer",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Producer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Mercedes",
+									"type": "text"
+								},
+								{
+									"key": "headquarter",
+									"value": "Altstetten",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/producer/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"producer",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Producer Fail",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": " Quandale",
+									"type": "text"
+								},
+								{
+									"key": "headquarter",
+									"value": " Berlin, Schweiz",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/producer/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"producer",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Producer Fail: name  = null",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "headquarter",
+									"value": "Altstetten",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/producer/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"producer",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Producer Fail: name too big",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "fdbsvshdbvuhbdsbfvuvbdsubvzvdszvbvfvbsdzbvfdsbfvus",
+									"type": "text"
+								},
+								{
+									"key": "headquarter",
+									"value": "blablabla",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/producer/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"producer",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Producer Fail: headquarter = null",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "nonono",
+									"type": "text"
+								},
+								{
+									"key": "headquarter",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/producer/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"producer",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Producer Fail: headquarter too big",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "nonono",
+									"type": "text"
+								},
+								{
+									"key": "headquarter",
+									"value": "jsdnfvusidbviusnvbödsvbuivbpsivsiuvbdsuvbvudpf",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Autohaus-1.0/resource/producer/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Autohaus-1.0",
+								"resource",
+								"producer",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

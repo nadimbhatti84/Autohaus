@@ -35,7 +35,7 @@ public class ProducerService{
     @Produces(APPLICATION_JSON)
     public Response readProducer(
             @NotEmpty
-            @QueryParam("id") String name
+            @QueryParam("name") String name
     ) throws IllegalArgumentException{
         if(DataHandler.readProducerByName(name) != null){
             Producer producer = DataHandler.readProducerByName(name);
@@ -58,10 +58,10 @@ public class ProducerService{
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteProducer(
             @NotEmpty
-            @QueryParam("id") String name
+            @QueryParam("name") String name
     ){
         int httpStatus = 200;
-        if(!DataHandler.deleteHersteller(name)){
+        if(!DataHandler.deleteProducer(name)){
             httpStatus = 410;
         }
         return Response
@@ -75,7 +75,7 @@ public class ProducerService{
      * @return
      */
     @Path("create")
-    @PUT
+    @POST
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertProducer(
             @Valid @BeanParam Producer producer
@@ -92,12 +92,11 @@ public class ProducerService{
      * @param name
      * @return
      */
-    @POST
+    @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateProducer(
             @Valid @BeanParam Producer producer,
-            @NotEmpty
             @FormParam("name") String name
     ){
         int httpStatus = 200;

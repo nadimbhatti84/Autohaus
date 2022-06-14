@@ -16,30 +16,31 @@ public class Car {
     private String model;
 
     @FormParam("consumption")
-    @NotEmpty
-    @DecimalMax(value = "1.0")
-    @DecimalMin(value = "50.0")
+    @NotNull
+    @DecimalMin(value = "1.0")
+    @DecimalMax(value = "50.0")
     private double consumption;
 
     @FormParam("mileage")
-    @NotEmpty
+    @NotNull
     @Min(0)
     @Max(1000000)
     private int mileage;
 
     @FormParam("horsepower")
-    @NotEmpty
+    @NotNull
     @Min(1)
     @Max(2000)
     private int horsepower;
 
     @FormParam("price")
-    @NotEmpty
+    @NotNull
     @DecimalMin(value = "10.0")
     @DecimalMax(value = "20000000.0")
     private double price;
 
     @FormParam("serialNum")
+    @NotEmpty
     @Pattern(regexp = "SA[2-9]{3}[A-F]{2}")
     private String serialNum;
 

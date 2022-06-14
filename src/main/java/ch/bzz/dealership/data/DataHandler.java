@@ -83,9 +83,9 @@ public final class DataHandler {
      * @param name
      * @return
      */
-    public static boolean deleteHersteller(String name) {
+    public static boolean deleteProducer(String name) {
         Producer producer = readProducerByName(name);
-        if (name != null) {
+        if (producer != null) {
             getProducerList().remove(producer);
             writeProducerJSON();
             return true;

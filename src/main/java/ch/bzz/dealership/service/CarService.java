@@ -15,8 +15,8 @@ import java.util.List;
 import static javax.ws.rs.core.MediaType.*;
 
 @Path("car")
-
 public class CarService {
+
     @Path("list")
     @GET
     @Produces(APPLICATION_JSON)

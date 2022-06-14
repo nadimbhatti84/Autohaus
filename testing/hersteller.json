@@ -1,22 +1,22 @@
 [
  {
-    "bezeichnung": "Mercedes",
-    "hauptsitz": "Stuttgart, Deutschland"
+    "name": "Mercedes",
+    "headquarter": "Stuttgart, Deutschland"
  },
 {
-    "bezeichnung": "Chevrolet",
-    "hauptsitz": "Detroit, Michigan, Vereinigte Staaten"
+    "name": "Chevrolet",
+    "headquarter": "Detroit, Michigan, Vereinigte Staaten"
  },
 {
-    "bezeichnung": "BMW",
-    "hauptsitz": "München, Deutschland"
+    "name": "BMW",
+    "headquarter": "München, Deutschland"
  },
 {
-    "bezeichnung": "Audi",
-    "hauptsitz": "Ingolstadt, Deutschland"
+    "name": "Audi",
+    "headquarter": "Ingolstadt, Deutschland"
  },
 {
-    "bezeichnung": "Dodge",
-    "hauptsitz": "Auburn Hills, Michigan, Vereinigte Staaten"
+    "name": "Dodge",
+    "headquarter": "Auburn Hills, Michigan, Vereinigte Staaten"
  }
 ]
