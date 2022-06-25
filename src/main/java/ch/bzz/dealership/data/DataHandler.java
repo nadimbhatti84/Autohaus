@@ -3,6 +3,7 @@ package ch.bzz.dealership.data;
 import ch.bzz.dealership.model.Car;
 import ch.bzz.dealership.model.Dealership;
 import ch.bzz.dealership.model.Producer;
+import ch.bzz.dealership.model.User;
 import ch.bzz.dealership.service.Config;
 
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
@@ -23,6 +24,7 @@ public final class DataHandler {
     private static List<Car> carList;
     private static List<Dealership> dealershipList;
     private static List<Producer> producerList;
+    private static List<User> userList;
 
     /**
      * private constructor defeats instantiation
@@ -388,5 +390,59 @@ public final class DataHandler {
      */
     private static void setDealershipList(List<Dealership> dealershipList) {
         DataHandler.dealershipList = dealershipList;
+    }
+
+    public String readUserRole(String username, String password) {
+        for (User user : getUserList()) {
+            if (user.getUsername().equals(username) &&
+                    user.getPassword().equals(password)) {
+                return user.getUsername();
+            }
+        }
+        return "guest";
+    }
+
+    /**
+     * reads the users from the JSON-file
+     */
+    private static void readUserJSON() {
+        try {
+            byte[] jsonData = Files.readAllBytes(
+                    Paths.get(
+                            Config.getProperty("userJSON")
+                    )
+            );
+            ObjectMapper objectMapper = new ObjectMapper();
+            User[] users = objectMapper.readValue(jsonData, User[].class);
+            for (User user : users) {
+                getUserList().add(user);
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * gets userList
+     *
+     * @return value of userList
+     */
+
+    public static List<User> getUserList() {
+        if (DataHandler.userList == null) {
+            DataHandler.setUserList(new ArrayList<>());
+            readUserJSON();
+        }
+        return userList;
+    }
+
+    /**
+     * sets userList
+     *
+     * @param userList the value to set
+     */
+
+    public static void setUserList(List<User> userList) {
+        DataHandler.userList = userList;
     }
 }

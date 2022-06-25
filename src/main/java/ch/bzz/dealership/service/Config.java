@@ -31,6 +31,7 @@ public class Config extends Application {
         providers.add(CarService.class);
         providers.add(DealershipService.class);
         providers.add(ProducerService.class);
+        providers.add(UserService.class);
         return providers;
     }
 

@@ -20,10 +20,19 @@ public class CarService {
     @Path("list")
     @GET
     @Produces(APPLICATION_JSON)
-    public Response listCar () {
-        List<Car> carList = DataHandler.readAllCars();
+    public Response listCar (
+            @CookieParam("userRole") String userRole
+    ) {
+        List<Car> carList = null;
+        int httpstatus;
+        if(userRole == null){
+            httpstatus = 403;
+        }else{
+            httpstatus = 200;
+            carList = DataHandler.readAllCars();
+        }
         Response response = Response
-                .status(200)
+                .status(httpstatus)
                 .entity(carList)
                 .build();
         return response;
@@ -40,19 +49,33 @@ public class CarService {
     @GET
     @Produces(APPLICATION_JSON)
     public Response readCar(
+            @CookieParam("userRole") String userRole,
             @Pattern(regexp = "SA[2-9]{3}[A-F]{2}")
             @NotEmpty
-            @QueryParam("id") String serialNum) throws IllegalArgumentException{
-        if(DataHandler.readCarBySerialNum(serialNum) != null){
-            Car car = DataHandler.readCarBySerialNum(serialNum);
+            @QueryParam("id") String serialNum) throws IllegalArgumentException
+    {
+        int httpstatus;
+        if(userRole == null || userRole.equals("guest")){
+            httpstatus = 403;
             Response response = Response
-                    .status(200)
-                    .entity(car)
+                    .status(httpstatus)
+                    .entity("")
                     .build();
             return response;
-        } else{
-            throw new IllegalArgumentException();
+        }else{
+            httpstatus = 200;
+            if(DataHandler.readCarBySerialNum(serialNum) != null){
+                Car car = DataHandler.readCarBySerialNum(serialNum);
+                Response response = Response
+                        .status(httpstatus)
+                        .entity(car)
+                        .build();
+                return response;
+            } else{
+                throw new IllegalArgumentException();
+            }
         }
+
     }
 
     /**
@@ -64,6 +87,7 @@ public class CarService {
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteCar(
+            @CookieParam("userRole") String userRole,
             @Pattern(regexp = "SA[2-9]{3}[A-F]{2}")
             @NotEmpty
             @QueryParam("id") String serialNum
@@ -86,6 +110,7 @@ public class CarService {
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertCar(
+            @CookieParam("userRole") String userRole,
             @Valid @BeanParam Car car
     ) {
         DataHandler.insertCar(car);
@@ -104,6 +129,7 @@ public class CarService {
     @PUT
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateCar(
+            @CookieParam("userRole") String userRole,
             @Valid @BeanParam Car car,
             @NotEmpty
             @Pattern(regexp = "SA[2-9]{3}[A-F]{2}")
