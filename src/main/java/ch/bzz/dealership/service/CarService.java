@@ -92,12 +92,18 @@ public class CarService {
             @NotEmpty
             @QueryParam("id") String serialNum
     ){
-        int httpStatus = 200;
-        if(!DataHandler.deleteAuto(serialNum)){
-            httpStatus = 410;
+
+        int httpstatus;
+        if(userRole == null || userRole.equals("guest") || userRole.equals("user")){
+            httpstatus = 403;
+        }else{
+            httpstatus = 200;
+            if(!DataHandler.deleteAuto(serialNum)){
+                httpstatus = 410;
+            }
         }
         return Response
-                .status(httpStatus)
+                .status(httpstatus)
                 .entity("")
                 .build();
     }
@@ -113,9 +119,16 @@ public class CarService {
             @CookieParam("userRole") String userRole,
             @Valid @BeanParam Car car
     ) {
-        DataHandler.insertCar(car);
+
+        int httpstatus;
+        if(userRole == null || userRole.equals("guest") || userRole.equals("user")){
+            httpstatus = 403;
+        }else{
+            httpstatus = 200;
+            DataHandler.insertCar(car);
+        }
         return Response
-                .status(200)
+                .status(httpstatus)
                 .entity("")
                 .build();
     }
@@ -135,21 +148,26 @@ public class CarService {
             @Pattern(regexp = "SA[2-9]{3}[A-F]{2}")
             @FormParam("serialNum") String serialNum
     ){
-        int httpStatus = 200;
-        Car oldcar = DataHandler.readCarBySerialNum(car.getSerialNum());
-        if(oldcar != null){
-            oldcar.setModel(car.getModel());
-            oldcar.setConsumption(car.getConsumption());
-            oldcar.setMileage(car.getMileage());
-            oldcar.setHorsepower(car.getHorsepower());
-            oldcar.setPrice(car.getPrice());
-            oldcar.setSerialNum(serialNum);
-            DataHandler.updateCar();
+        int httpstatus;
+        if(userRole == null || userRole.equals("guest") || userRole.equals("user")){
+            httpstatus = 403;
         }else{
-            httpStatus = 410;
+            httpstatus = 200;
+            Car oldcar = DataHandler.readCarBySerialNum(car.getSerialNum());
+            if(oldcar != null){
+                oldcar.setModel(car.getModel());
+                oldcar.setConsumption(car.getConsumption());
+                oldcar.setMileage(car.getMileage());
+                oldcar.setHorsepower(car.getHorsepower());
+                oldcar.setPrice(car.getPrice());
+                oldcar.setSerialNum(serialNum);
+                DataHandler.updateCar();
+            }else{
+                httpstatus = 410;
+            }
         }
         return Response
-                .status(httpStatus)
+                .status(httpstatus)
                 .entity("")
                 .build();
     }
