@@ -16,7 +16,7 @@ function sendLogin(form){
             window.location.href = "./dealership.html";
         })
         .fail(function (xhr, status, errorThrown){
-            if(xhr.status == 404){
+            if(xhr.status === 404){
                 $("#message").text("Benutzername/Passwort unbekannt");
             }else{
                 $("#message").text("Es ist ein Fehler aufgetreten")

@@ -15,7 +15,6 @@ import java.util.List;
 import static javax.ws.rs.core.MediaType.*;
 
 @Path("dealership")
-
 public class DealershipService {
     @Path("list")
     @GET

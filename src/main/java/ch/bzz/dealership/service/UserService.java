@@ -32,11 +32,12 @@ public class UserService {
         int httpStatus;
 
         User user = UserData.findUser(username, password);
-        if(user == null || user.getRole() == null){
+        if(user.getRole().equals("guest")){
             httpStatus = 404;
         }else{
             httpStatus = 200;
         }
+        assert user != null;
         NewCookie cookie = new NewCookie(
                 "userRole",
                 user.getRole(),

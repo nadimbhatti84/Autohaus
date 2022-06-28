@@ -15,7 +15,6 @@ import java.util.List;
 import static javax.ws.rs.core.MediaType.*;
 
 @Path("producer")
-
 public class ProducerService{
     @Path("list")
     @GET
