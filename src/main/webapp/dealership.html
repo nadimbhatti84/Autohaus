@@ -9,6 +9,17 @@
     <title>Autohaus</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./js/login.js"></script>
+    <style>
+        table, th, td {
+            border:1px solid black;
+            border-collapse: collapse;
+        }
+
+        table{
+            width: 100%;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
 <nav id="nav">
@@ -16,6 +27,55 @@
     <span id="message" style="color: red;"></span>
 </nav>
 <h1>Autohaus</h1>
-</form>
+<div id="carousel">
+</div>
+<script>
+    (async(data) => {
+        const carousel = document.querySelector("#carousel"),
+            createEL = (n = "tr") => document.createElement(n);
+
+        for (const d of data) {
+            const res = await fetch(d.link + "/list");
+            if(!res.ok) continue;
+            const data = await res.json();
+
+            const table = document.createElement("table");
+
+            (function tableHead(){
+                const tr = createEL(),
+                    keys = Object.keys(data[0]).map((e)=> [...e].map((el, i)=> i== 0 ? el.toUpperCase(): el ).toString().replaceAll(",", ""));
+
+                for (const key of keys) {
+                    const th = createEL("th");
+                    th.innerText = key;
+                    tr.appendChild(th);
+                }
+
+                table.appendChild(tr)
+            })()
+
+            for (const e of data){
+                const tr = createEL(),
+                    keys = Object.keys(e);
+
+                for (const key of keys) {
+                    const td = createEL("td");
+                    td.innerText = e[key];
+                    tr.appendChild(td);
+                }
+
+                table.appendChild(tr);
+            }
+
+            carousel.appendChild(table);
+        }
+
+
+    })([
+        {name: "Dealership", link: "/Autohaus-1.0/resource/dealership"},
+        {name: "Car", link:"/Autohaus-1.0/resource/car"},
+        {name: "Producer", link: "/Autohaus-1.0/resource/producer"}
+    ])
+</script>
 </body>
 </html>

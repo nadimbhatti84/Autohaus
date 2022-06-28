@@ -7,14 +7,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashSet;
 import java.util.Properties;
-import java.util.Set;
 
 /**
  * configure the web services and properties
  */
 
 @ApplicationPath("/resource")
-
 public class Config extends Application {
     private static final String PROPERTIES_PATH = "/home/bzz/webapp/autoList.properties";
     private static Properties properties = null;
@@ -25,7 +23,7 @@ public class Config extends Application {
      * @return set of classes
      */
     @Override
-    public Set<Class<?>> getClasses() {
+    public HashSet getClasses() {
         HashSet providers = new HashSet<Class<?>>();
         providers.add(TestService.class);
         providers.add(CarService.class);

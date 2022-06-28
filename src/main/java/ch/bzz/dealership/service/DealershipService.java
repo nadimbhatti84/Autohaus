@@ -20,10 +20,19 @@ public class DealershipService {
     @Path("list")
     @GET
     @Produces(APPLICATION_JSON)
-    public Response listDealership () {
-        List<Dealership> dealershipList = DataHandler.readAllDealerships();
+    public Response listDealership (
+            @CookieParam("userRole") String userRole
+    ) {
+        List<Dealership> dealershipList = null;
+        int httpstatus;
+        if(userRole == null || userRole.equals("guest")){
+            httpstatus = 403;
+        }else{
+            httpstatus = 200;
+            dealershipList = DataHandler.readAllDealerships();
+        }
         Response response = Response
-                .status(200)
+                .status(httpstatus)
                 .entity(dealershipList)
                 .build();
         return response;
@@ -40,18 +49,31 @@ public class DealershipService {
     @GET
     @Produces(APPLICATION_JSON)
     public Response readDealership(
+            @CookieParam("userRole") String userRole,
             @NotEmpty
             @QueryParam("name") String name
-    ) throws IllegalArgumentException{
-        if(DataHandler.readDealershipByName(name) != null){
-            Dealership dealership = DataHandler.readDealershipByName(name);
+    ) throws IllegalArgumentException
+    {
+        int httpstatus;
+        if(userRole == null || userRole.equals("guest")){
+            httpstatus = 403;
             Response response = Response
-                    .status(200)
-                    .entity(dealership)
+                    .status(httpstatus)
+                    .entity("")
                     .build();
             return response;
-        } else{
-            throw new IllegalArgumentException();
+        }else{
+            httpstatus = 200;
+            if(DataHandler.readDealershipByName(name) != null){
+                Dealership dealership = DataHandler.readDealershipByName(name);
+                Response response = Response
+                        .status(httpstatus)
+                        .entity(dealership)
+                        .build();
+                return response;
+            } else{
+                throw new IllegalArgumentException();
+            }
         }
     }
 
@@ -64,17 +86,24 @@ public class DealershipService {
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteDealership(
+            @CookieParam("userRole") String userRole,
             @NotEmpty
             @QueryParam("name") String name
     ){
-        int httpStatus = 200;
-        if(!DataHandler.deleteDealership(name)){
-            httpStatus = 410;
+        int httpstatus;
+        if(userRole == null || userRole.equals("guest")){
+            httpstatus = 403;
+        }else{
+            httpstatus = 200;
+            if(!DataHandler.deleteDealership(name)){
+                httpstatus = 410;
+            }
         }
-        return Response
-                .status(httpStatus)
+        Response response = Response
+                .status(httpstatus)
                 .entity("")
                 .build();
+        return response;
     }
 
     /**
@@ -85,13 +114,22 @@ public class DealershipService {
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertDealership(
+            @CookieParam("userRole") String userRole,
             @Valid @BeanParam Dealership dealership
     ) {
-        DataHandler.insertDealership(dealership);
-        return Response
-                .status(200)
+        int httpstatus;
+        if(userRole == null || userRole.equals("guest")){
+            httpstatus = 403;
+        }else{
+            httpstatus = 200;
+            DataHandler.insertDealership(dealership);
+
+        }
+        Response response = Response
+                .status(httpstatus)
                 .entity("")
                 .build();
+        return response;
     }
 
 
@@ -104,22 +142,29 @@ public class DealershipService {
     @PUT
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateDealership(
+            @CookieParam("userRole") String userRole,
             @Valid @BeanParam Dealership dealership,
             @NotEmpty
             @FormParam("name") String name
     ){
-        int httpStatus = 200;
-        Dealership olddealership = DataHandler.readDealershipByName(dealership.getName());
-        if(olddealership != null){
-            olddealership.setAdress(dealership.getAdress());
-            olddealership.setName(dealership.getName());
-            DataHandler.updateDealership();
+        int httpstatus;
+        if(userRole == null || userRole.equals("guest")){
+            httpstatus = 403;
         }else{
-            httpStatus = 410;
+            httpstatus = 200;
+            Dealership olddealership = DataHandler.readDealershipByName(dealership.getName());
+            if(olddealership != null){
+                olddealership.setAdress(dealership.getAdress());
+                olddealership.setName(dealership.getName());
+                DataHandler.updateDealership();
+            }else{
+                httpstatus = 410;
+            }
         }
-        return Response
-                .status(httpStatus)
+        Response response = Response
+                .status(httpstatus)
                 .entity("")
                 .build();
+        return response;
     }
 }

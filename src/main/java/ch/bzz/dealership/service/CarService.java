@@ -25,7 +25,7 @@ public class CarService {
     ) {
         List<Car> carList = null;
         int httpstatus;
-        if(userRole == null){
+        if(userRole == null || userRole.equals("guest")){
             httpstatus = 403;
         }else{
             httpstatus = 200;
