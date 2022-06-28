@@ -1,0 +1,1787 @@
+{
+	"id": "8214d816-b6fb-4df8-80aa-a30a7a4e3517",
+	"name": "Autohaus",
+	"timestamp": "2022-06-28T19:54:23.485Z",
+	"collection_id": "09e294d1-db49-4b9f-aa24-e954b51f6e9c",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 1,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "85d16a47-32be-47c7-adca-009cddbca0d5",
+			"name": "Dealership list",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/dealership/list",
+			"time": 42,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				42
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "8a11cf70-a56b-4ab7-8036-8bfae917cb0e",
+			"name": "Dealership Read",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/dealership/read?name=Autohaus%20Adelfingen",
+			"time": 81,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Autohaus Read": true
+			},
+			"testPassFailCounts": {
+				"Autohaus Read": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				81
+			],
+			"allTests": [
+				{
+					"Autohaus Read": true
+				}
+			]
+		},
+		{
+			"id": "1ca761da-99fe-41a6-81d5-8d0b392bd48b",
+			"name": "Dealership Read Fail",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/dealership/read?name=Nadim",
+			"time": 7,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				7
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "7c7b2404-250f-4d9f-b056-429482cd98db",
+			"name": "Delete Dealership",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/dealership/delete?name=Autohaus%20Adertal",
+			"time": 10,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				10
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "39364b27-8df4-446a-9804-09280ab3f1e0",
+			"name": "Delete Dealership Fail",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/dealership/delete?name=Autohaus%20Adertalien",
+			"time": 8,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				8
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "d6ae3211-886b-4476-95a0-6db7bf62eedf",
+			"name": "Create Dealership",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/dealership/create",
+			"time": 381,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				381
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "27140595-03a4-4244-aec4-48c03dd8b769",
+			"name": "Create Dealership Fail: name = null",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/dealership/create",
+			"time": 60,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				60
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "e71077ef-608e-422f-9965-ea82e8409207",
+			"name": "Create Dealership Fail: name too small",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/dealership/create",
+			"time": 15,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				15
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "a2bbd025-6f85-46f0-a413-58b781dbddc5",
+			"name": "Create Dealership Fail: name too big",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/dealership/create",
+			"time": 16,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				16
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "0148f7b9-f348-427f-8bf6-128d580e5f03",
+			"name": "Create Dealership Fail: adress = null",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/dealership/create",
+			"time": 14,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				14
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "12a6b8f0-3602-469c-92ed-110b43db1b9f",
+			"name": "Create Dealership Fail: adress too small",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/dealership/create",
+			"time": 19,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				19
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "2c30fbd2-5dc9-4836-a95b-b8c54ddb3092",
+			"name": "Create Dealership Fail: adress too big",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/dealership/create",
+			"time": 27,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				27
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "6bd8edbe-f338-4bea-87f5-1f58a29e40d4",
+			"name": "Update Dealership",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/dealership/update",
+			"time": 13,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				13
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "393b1016-2af9-40a6-8767-fd855ebfd69e",
+			"name": "Update Car Fail: name = null",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/dealership/update",
+			"time": 15,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				15
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "1acb4b4c-7784-4f9c-8c2f-9838cb1fa0db",
+			"name": "Update Dealership Fail: name too small",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/dealership/update",
+			"time": 12,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				12
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "1a628e58-3451-4db1-a759-28bd3049d6eb",
+			"name": "Update Dealership Fail: name too big",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/dealership/update",
+			"time": 9,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				9
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "a1e39f72-5c56-4a01-b941-9b419dcc27b4",
+			"name": "Update Dealership Fail: adress = null",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/dealership/update",
+			"time": 19,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				19
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "05085e15-6a27-4a42-a15b-49d9996c7477",
+			"name": "Update Dealership Fail: adress too small",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/dealership/update",
+			"time": 5,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				5
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "73b3f884-35ca-40e5-ad71-c12fad7ef6b6",
+			"name": "Update Dealership Fail: adress too big",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/dealership/update",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				6
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "10b7d905-30c6-4063-804c-3a564d1726c5",
+			"name": "Car list",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/list",
+			"time": 43,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				43
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "01fdb671-1254-44b6-af33-f4cb6e2be1a6",
+			"name": "Car Read",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/read?id=SA223AB",
+			"time": 6,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				6
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "ed9834c4-5599-4550-bfe8-d7813324b7d9",
+			"name": "Car Read Fail",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/read?id=1234567",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				6
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "80fc2bed-426b-464d-97fb-6f8e6cd904df",
+			"name": "Delete Car",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/delete?id=SA223AB",
+			"time": 10,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				10
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "dde7b9f8-d16f-4db5-bcc6-da04cf7de29c",
+			"name": "Delete Car Fail",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/delete?id=SA982FDQQNDDR",
+			"time": 8,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				8
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "96db4ed0-5861-4b57-8f02-579fe41f7919",
+			"name": "Create Car",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+			"time": 79,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				79
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "f72a3d4f-0fa5-48e4-a662-0de6cb3f4a16",
+			"name": "Create Car Fail: Model = null",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				6
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "c9ef6ea3-c6ca-4402-a8d6-31df25166e14",
+			"name": "Create Car Fail: Model too big",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+			"time": 10,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				10
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "2bb75601-31d6-4146-8dbb-db48e36adabb",
+			"name": "Create Car Fail: Consumption = null",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+			"time": 147,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				147
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "dc0b46c4-180a-4316-aa97-5999b977d9b1",
+			"name": "Create Car Fail: Consumption too small",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+			"time": 35,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				35
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "c23098c0-3856-4ef9-ae43-f0d49e0a94c3",
+			"name": "Create Car Fail: Consumption too big",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+			"time": 40,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				40
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "227ed9a7-bc1a-48e4-8d27-f8013ec97006",
+			"name": "Create Car Fail: Mileage = null",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+			"time": 48,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				48
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "ce547a82-eb53-4a86-aea7-bcf48c142e69",
+			"name": "Create Car Fail: Mileage too small",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+			"time": 13,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				13
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "304d2d9f-91f4-44b5-bb44-6d0647ed4e67",
+			"name": "Create Car Fail: Mileage too big",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+			"time": 19,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				19
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "4c5dd598-d524-4c02-bfad-405f10feb2ff",
+			"name": "Create Car Fail: Horsepower = null",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+			"time": 10,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				10
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "efff4f15-cc8a-49f1-99b1-daf3177a2fbe",
+			"name": "Create Car Fail: Horsepower too small",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+			"time": 18,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				18
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "4eeda3d6-2726-4099-81fc-8e75d691d35f",
+			"name": "Create Car Fail: Horsepower too big",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				6
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "fa94f1e1-7450-48d3-9ae8-9994d1da6523",
+			"name": "Create Car Fail: Price = null",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+			"time": 13,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				13
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "53b94eb3-a9ea-42f9-ab18-c4d6d129722e",
+			"name": "Create Car Fail: Price too small",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+			"time": 11,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				11
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "d1d691e5-b605-4a5c-a116-edfcd2c2add9",
+			"name": "Create Car Fail: Price too big",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+			"time": 19,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				19
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "e21b1788-cefd-4a62-807e-fbcf2c900b4c",
+			"name": "Create Car Fail: Serial Number = null",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+			"time": 21,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				21
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "befef060-ed4a-4ed7-9b50-2a52164295ab",
+			"name": "Create Car Fail: Serial Number not valid",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/create",
+			"time": 23,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				23
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "56ec38f3-485c-4b9a-b5c5-e5739ade3578",
+			"name": "Update Car",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+			"time": 18,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				18
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "b1ffa0d5-7922-4aba-b912-24c4330c2f38",
+			"name": "Update Car Fail",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+			"time": 15,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				15
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "1a1f31d5-9c10-4431-91e5-c666e36d4878",
+			"name": "Update Car Fail: Model = null",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+			"time": 20,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				20
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "f4c6a2b8-edb8-43cb-96a8-001907bb76c0",
+			"name": "Update Car Fail: Model too big",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+			"time": 28,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				28
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "7d652975-a392-46c0-bb97-a6e1f66013a1",
+			"name": "Update Car Fail: Consumption = null",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+			"time": 31,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				31
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "3132e8fc-34f4-4a8a-87cd-32005a6dacd4",
+			"name": "Update Car Fail: Consumption too small",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+			"time": 12,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				12
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "dccb7e91-2d06-473d-b2b0-76fd1c4d0808",
+			"name": "Update Car Fail: Consumption too big",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+			"time": 11,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				11
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "5f6eee20-e3ac-4d24-afad-771f91556db1",
+			"name": "Update Car Fail: Mileage = null",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+			"time": 13,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				13
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "c6c47717-ff51-4970-a164-5ad4f9e777c0",
+			"name": "Update Car Fail: Mileage too small",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+			"time": 5,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				5
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "ad9b86f2-26ab-4d99-8ac2-b05421f6c788",
+			"name": "Update Car Fail: Mileage too big",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+			"time": 15,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				15
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "ef5f0d0e-9dba-4197-923c-e5838aab9b64",
+			"name": "Update Car Fail: Horsepower = null",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+			"time": 21,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				21
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "e86c06fc-56f5-4392-a25c-6934b831583b",
+			"name": "Update Car Fail: Horsepower too small",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+			"time": 11,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				11
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "e33e3204-fa5d-4ba0-a8ac-a4e51514525d",
+			"name": "Update Car Fail: Horsepower too big",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+			"time": 12,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				12
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "8f378758-736b-4c1b-afea-963d89b1f2f6",
+			"name": "Update Car Fail: Price = null",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+			"time": 9,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				9
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "31c359f3-3081-4040-bfcd-7efd12f4ba94",
+			"name": "Update Car Fail: Price too small",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+			"time": 14,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				14
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "1fe8d7c6-289f-4369-bf4a-63f90e9e8ae2",
+			"name": "Update Car Fail: Price too big",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+			"time": 29,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				29
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "22b3710e-6ee0-4b13-b0c1-742a280d5fee",
+			"name": "Update Car Fail: serial Number = null",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+			"time": 14,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				14
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "0c10fc31-13eb-43c1-af0b-110abff1330b",
+			"name": "Update Car Fail: Serial Number is not valid",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/car/update",
+			"time": 14,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				14
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "73f70720-7cc0-43ae-b9dc-972b861bc8d3",
+			"name": "Producer list",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/producer/list",
+			"time": 6,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				6
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "98d8dbda-ab5d-41b6-8fd2-6aa2633eae42",
+			"name": "Producer Read",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/producer/read?name=Mercedes",
+			"time": 4,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				4
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "48b4c172-ddce-4a7b-99dd-753fc5012b72",
+			"name": "Producer Read Fail",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/producer/read?name=Nadim",
+			"time": 3,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "2e866f50-2d6b-41fa-ae55-103c6f35a8ca",
+			"name": "Delete Producer",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/producer/delete?name=Audi",
+			"time": 5,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				5
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "bcafc4d6-ae53-4709-afee-2ef303bc92ad",
+			"name": "Delete Producer Fail",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/producer/delete?name=PenisPorsche",
+			"time": 3,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "ff6f00b1-201b-44e2-94c5-6045f614e1da",
+			"name": "Create Producer",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/producer/create",
+			"time": 9,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				9
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "304b63d2-2834-4e98-a405-577b8d5811b2",
+			"name": "Create Producer Fail: Name = null",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/producer/create",
+			"time": 4,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				4
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "3ae74dff-da2d-466e-bed2-c7786396daa0",
+			"name": "Create Producer Fail: Name to big",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/producer/create",
+			"time": 14,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				14
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "19bdebd7-87d7-482d-9b37-bb0b377553bd",
+			"name": "Create Producer Fail: Headquarter = null",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/producer/create",
+			"time": 8,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				8
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "b0a53e56-af72-434c-9b02-bca6f8b14c1c",
+			"name": "Create Producer Fail: Headquarter too big",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/producer/create",
+			"time": 20,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				20
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "e1792317-57e4-42a6-8f33-3afe4d4fc554",
+			"name": "Update Producer",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/producer/update",
+			"time": 12,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				12
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "edc1bbde-49a2-4058-8418-b15fca387976",
+			"name": "Update Producer Fail",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/producer/update",
+			"time": 4,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				4
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "5239a718-9e14-4c77-8131-e609851cad6d",
+			"name": "Update Producer Fail: name  = null",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/producer/update",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				6
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "8e41cecf-ecc3-4b0c-ad8e-4c940da1e710",
+			"name": "Update Producer Fail: name too big",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/producer/update",
+			"time": 11,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				11
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "5c8d994e-6cdf-4811-a9da-c5b2956a46a3",
+			"name": "Update Producer Fail: headquarter = null",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/producer/update",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				6
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "f689c447-8496-4b5e-9d1c-572ebf44220c",
+			"name": "Update Producer Fail: headquarter too big",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/producer/update",
+			"time": 13,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				13
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "f7bab5a5-7a9d-4f12-998a-b83cf4c5a72f",
+			"name": "Guest tries to Log in",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/user/login",
+			"time": 13,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				13
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "dc6a644a-18a2-4edb-be18-11c05c2fcff1",
+			"name": "User Logs in",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/user/login",
+			"time": 26,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				26
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "dc240f98-a968-4701-aebe-a1e8aaf2239e",
+			"name": "Admin Logs in",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/user/login",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				9
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "f28d946e-dfda-482b-ac23-f68f7c6074d3",
+			"name": "Non existing User logs in",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/user/login",
+			"time": 5,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				5
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "9bb7aaa9-1fca-4d7c-bd2e-d826b991519d",
+			"name": "Guest/User/Admin Logs out",
+			"url": "http://localhost:8080/Autohaus-1.0/resource/user/logoff",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				6
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1829,
+	"collection": {
+		"requests": [
+			{
+				"id": "85d16a47-32be-47c7-adca-009cddbca0d5",
+				"method": "GET"
+			},
+			{
+				"id": "8a11cf70-a56b-4ab7-8036-8bfae917cb0e",
+				"method": "GET"
+			},
+			{
+				"id": "1ca761da-99fe-41a6-81d5-8d0b392bd48b",
+				"method": "GET"
+			},
+			{
+				"id": "7c7b2404-250f-4d9f-b056-429482cd98db",
+				"method": "DELETE"
+			},
+			{
+				"id": "39364b27-8df4-446a-9804-09280ab3f1e0",
+				"method": "DELETE"
+			},
+			{
+				"id": "d6ae3211-886b-4476-95a0-6db7bf62eedf",
+				"method": "POST"
+			},
+			{
+				"id": "27140595-03a4-4244-aec4-48c03dd8b769",
+				"method": "POST"
+			},
+			{
+				"id": "e71077ef-608e-422f-9965-ea82e8409207",
+				"method": "POST"
+			},
+			{
+				"id": "a2bbd025-6f85-46f0-a413-58b781dbddc5",
+				"method": "POST"
+			},
+			{
+				"id": "0148f7b9-f348-427f-8bf6-128d580e5f03",
+				"method": "POST"
+			},
+			{
+				"id": "12a6b8f0-3602-469c-92ed-110b43db1b9f",
+				"method": "POST"
+			},
+			{
+				"id": "2c30fbd2-5dc9-4836-a95b-b8c54ddb3092",
+				"method": "POST"
+			},
+			{
+				"id": "6bd8edbe-f338-4bea-87f5-1f58a29e40d4",
+				"method": "PUT"
+			},
+			{
+				"id": "393b1016-2af9-40a6-8767-fd855ebfd69e",
+				"method": "PUT"
+			},
+			{
+				"id": "1acb4b4c-7784-4f9c-8c2f-9838cb1fa0db",
+				"method": "PUT"
+			},
+			{
+				"id": "1a628e58-3451-4db1-a759-28bd3049d6eb",
+				"method": "PUT"
+			},
+			{
+				"id": "a1e39f72-5c56-4a01-b941-9b419dcc27b4",
+				"method": "PUT"
+			},
+			{
+				"id": "05085e15-6a27-4a42-a15b-49d9996c7477",
+				"method": "PUT"
+			},
+			{
+				"id": "73b3f884-35ca-40e5-ad71-c12fad7ef6b6",
+				"method": "PUT"
+			},
+			{
+				"id": "10b7d905-30c6-4063-804c-3a564d1726c5",
+				"method": "GET"
+			},
+			{
+				"id": "01fdb671-1254-44b6-af33-f4cb6e2be1a6",
+				"method": "GET"
+			},
+			{
+				"id": "ed9834c4-5599-4550-bfe8-d7813324b7d9",
+				"method": "GET"
+			},
+			{
+				"id": "80fc2bed-426b-464d-97fb-6f8e6cd904df",
+				"method": "DELETE"
+			},
+			{
+				"id": "dde7b9f8-d16f-4db5-bcc6-da04cf7de29c",
+				"method": "DELETE"
+			},
+			{
+				"id": "96db4ed0-5861-4b57-8f02-579fe41f7919",
+				"method": "POST"
+			},
+			{
+				"id": "f72a3d4f-0fa5-48e4-a662-0de6cb3f4a16",
+				"method": "POST"
+			},
+			{
+				"id": "c9ef6ea3-c6ca-4402-a8d6-31df25166e14",
+				"method": "POST"
+			},
+			{
+				"id": "2bb75601-31d6-4146-8dbb-db48e36adabb",
+				"method": "POST"
+			},
+			{
+				"id": "dc0b46c4-180a-4316-aa97-5999b977d9b1",
+				"method": "POST"
+			},
+			{
+				"id": "c23098c0-3856-4ef9-ae43-f0d49e0a94c3",
+				"method": "POST"
+			},
+			{
+				"id": "227ed9a7-bc1a-48e4-8d27-f8013ec97006",
+				"method": "POST"
+			},
+			{
+				"id": "ce547a82-eb53-4a86-aea7-bcf48c142e69",
+				"method": "POST"
+			},
+			{
+				"id": "304d2d9f-91f4-44b5-bb44-6d0647ed4e67",
+				"method": "POST"
+			},
+			{
+				"id": "4c5dd598-d524-4c02-bfad-405f10feb2ff",
+				"method": "POST"
+			},
+			{
+				"id": "efff4f15-cc8a-49f1-99b1-daf3177a2fbe",
+				"method": "POST"
+			},
+			{
+				"id": "4eeda3d6-2726-4099-81fc-8e75d691d35f",
+				"method": "POST"
+			},
+			{
+				"id": "fa94f1e1-7450-48d3-9ae8-9994d1da6523",
+				"method": "POST"
+			},
+			{
+				"id": "53b94eb3-a9ea-42f9-ab18-c4d6d129722e",
+				"method": "POST"
+			},
+			{
+				"id": "d1d691e5-b605-4a5c-a116-edfcd2c2add9",
+				"method": "POST"
+			},
+			{
+				"id": "e21b1788-cefd-4a62-807e-fbcf2c900b4c",
+				"method": "POST"
+			},
+			{
+				"id": "befef060-ed4a-4ed7-9b50-2a52164295ab",
+				"method": "POST"
+			},
+			{
+				"id": "56ec38f3-485c-4b9a-b5c5-e5739ade3578",
+				"method": "PUT"
+			},
+			{
+				"id": "b1ffa0d5-7922-4aba-b912-24c4330c2f38",
+				"method": "PUT"
+			},
+			{
+				"id": "1a1f31d5-9c10-4431-91e5-c666e36d4878",
+				"method": "PUT"
+			},
+			{
+				"id": "f4c6a2b8-edb8-43cb-96a8-001907bb76c0",
+				"method": "PUT"
+			},
+			{
+				"id": "7d652975-a392-46c0-bb97-a6e1f66013a1",
+				"method": "PUT"
+			},
+			{
+				"id": "3132e8fc-34f4-4a8a-87cd-32005a6dacd4",
+				"method": "PUT"
+			},
+			{
+				"id": "dccb7e91-2d06-473d-b2b0-76fd1c4d0808",
+				"method": "PUT"
+			},
+			{
+				"id": "5f6eee20-e3ac-4d24-afad-771f91556db1",
+				"method": "PUT"
+			},
+			{
+				"id": "c6c47717-ff51-4970-a164-5ad4f9e777c0",
+				"method": "PUT"
+			},
+			{
+				"id": "ad9b86f2-26ab-4d99-8ac2-b05421f6c788",
+				"method": "PUT"
+			},
+			{
+				"id": "ef5f0d0e-9dba-4197-923c-e5838aab9b64",
+				"method": "PUT"
+			},
+			{
+				"id": "e86c06fc-56f5-4392-a25c-6934b831583b",
+				"method": "PUT"
+			},
+			{
+				"id": "e33e3204-fa5d-4ba0-a8ac-a4e51514525d",
+				"method": "PUT"
+			},
+			{
+				"id": "8f378758-736b-4c1b-afea-963d89b1f2f6",
+				"method": "PUT"
+			},
+			{
+				"id": "31c359f3-3081-4040-bfcd-7efd12f4ba94",
+				"method": "PUT"
+			},
+			{
+				"id": "1fe8d7c6-289f-4369-bf4a-63f90e9e8ae2",
+				"method": "PUT"
+			},
+			{
+				"id": "22b3710e-6ee0-4b13-b0c1-742a280d5fee",
+				"method": "PUT"
+			},
+			{
+				"id": "0c10fc31-13eb-43c1-af0b-110abff1330b",
+				"method": "PUT"
+			},
+			{
+				"id": "73f70720-7cc0-43ae-b9dc-972b861bc8d3",
+				"method": "GET"
+			},
+			{
+				"id": "98d8dbda-ab5d-41b6-8fd2-6aa2633eae42",
+				"method": "GET"
+			},
+			{
+				"id": "48b4c172-ddce-4a7b-99dd-753fc5012b72",
+				"method": "GET"
+			},
+			{
+				"id": "2e866f50-2d6b-41fa-ae55-103c6f35a8ca",
+				"method": "DELETE"
+			},
+			{
+				"id": "bcafc4d6-ae53-4709-afee-2ef303bc92ad",
+				"method": "DELETE"
+			},
+			{
+				"id": "ff6f00b1-201b-44e2-94c5-6045f614e1da",
+				"method": "POST"
+			},
+			{
+				"id": "304b63d2-2834-4e98-a405-577b8d5811b2",
+				"method": "POST"
+			},
+			{
+				"id": "3ae74dff-da2d-466e-bed2-c7786396daa0",
+				"method": "POST"
+			},
+			{
+				"id": "19bdebd7-87d7-482d-9b37-bb0b377553bd",
+				"method": "POST"
+			},
+			{
+				"id": "b0a53e56-af72-434c-9b02-bca6f8b14c1c",
+				"method": "POST"
+			},
+			{
+				"id": "e1792317-57e4-42a6-8f33-3afe4d4fc554",
+				"method": "PUT"
+			},
+			{
+				"id": "edc1bbde-49a2-4058-8418-b15fca387976",
+				"method": "PUT"
+			},
+			{
+				"id": "5239a718-9e14-4c77-8131-e609851cad6d",
+				"method": "PUT"
+			},
+			{
+				"id": "8e41cecf-ecc3-4b0c-ad8e-4c940da1e710",
+				"method": "PUT"
+			},
+			{
+				"id": "5c8d994e-6cdf-4811-a9da-c5b2956a46a3",
+				"method": "PUT"
+			},
+			{
+				"id": "f689c447-8496-4b5e-9d1c-572ebf44220c",
+				"method": "PUT"
+			},
+			{
+				"id": "f7bab5a5-7a9d-4f12-998a-b83cf4c5a72f",
+				"method": "POST"
+			},
+			{
+				"id": "dc6a644a-18a2-4edb-be18-11c05c2fcff1",
+				"method": "POST"
+			},
+			{
+				"id": "dc240f98-a968-4701-aebe-a1e8aaf2239e",
+				"method": "POST"
+			},
+			{
+				"id": "f28d946e-dfda-482b-ac23-f68f7c6074d3",
+				"method": "POST"
+			},
+			{
+				"id": "9bb7aaa9-1fca-4d7c-bd2e-d826b991519d",
+				"method": "DELETE"
+			}
+		]
+	}
+}
