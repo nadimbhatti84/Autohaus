@@ -20,10 +20,19 @@ public class ProducerService{
     @Path("list")
     @GET
     @Produces(APPLICATION_JSON)
-    public Response listProducer () {
-        List<Producer> producerList = DataHandler.readAllProducer();
+    public Response listProducer (
+            @CookieParam("userRole") String userRole
+    ) {
+        List<Producer> producerList = null;
+        int httpstatus;
+        if(userRole == null || userRole.equals("guest")){
+            httpstatus = 403;
+        }else{
+            httpstatus = 200;
+            producerList = DataHandler.readAllProducer();
+        }
         Response response = Response
-                .status(200)
+                .status(httpstatus)
                 .entity(producerList)
                 .build();
         return response;
@@ -34,19 +43,32 @@ public class ProducerService{
     @GET
     @Produces(APPLICATION_JSON)
     public Response readProducer(
+            @CookieParam("userRole") String userRole,
             @NotEmpty
             @QueryParam("name") String name
-    ) throws IllegalArgumentException{
-        if(DataHandler.readProducerByName(name) != null){
-            Producer producer = DataHandler.readProducerByName(name);
-            Response response = Response
-                    .status(200)
-                    .entity(producer)
-                    .build();
-            return response;
-        } else{
-            throw new IllegalArgumentException();
+    ) throws IllegalArgumentException
+    {
+        int httpstatus;
+        if(userRole == null || userRole.equals("guest")){
+            httpstatus = 403;
+        }else{
+            httpstatus = 200;
+            if(DataHandler.readProducerByName(name) != null){
+                Producer producer = DataHandler.readProducerByName(name);
+                Response response = Response
+                        .status(httpstatus)
+                        .entity(producer)
+                        .build();
+                return response;
+            } else{
+                throw new IllegalArgumentException();
+            }
         }
+        Response response = Response
+                .status(httpstatus)
+                .entity("")
+                .build();
+        return response;
     }
     /**
      * deletes a producer identified by its Name
@@ -57,17 +79,24 @@ public class ProducerService{
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteProducer(
+            @CookieParam("userRole") String userRole,
             @NotEmpty
             @QueryParam("name") String name
     ){
-        int httpStatus = 200;
-        if(!DataHandler.deleteProducer(name)){
-            httpStatus = 410;
+        int httpstatus;
+        if(userRole == null || userRole.equals("guest") || userRole.equals("user")){
+            httpstatus = 403;
+        }else{
+            httpstatus = 200;
+            if(!DataHandler.deleteProducer(name)){
+                httpstatus = 410;
+            }
         }
-        return Response
-                .status(httpStatus)
+        Response response = Response
+                .status(httpstatus)
                 .entity("")
                 .build();
+        return response;
     }
 
     /**
@@ -78,13 +107,21 @@ public class ProducerService{
     @POST
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertProducer(
+            @CookieParam("userRole") String userRole,
             @Valid @BeanParam Producer producer
     ) {
-        DataHandler.insertProducer(producer);
-        return Response
-                .status(200)
+        int httpstatus;
+        if(userRole == null || userRole.equals("guest") || userRole.equals("user")){
+            httpstatus = 403;
+        }else{
+            httpstatus = 200;
+            DataHandler.insertProducer(producer);
+        }
+        Response response = Response
+                .status(httpstatus)
                 .entity("")
                 .build();
+        return response;
     }
 
     /**
@@ -96,22 +133,29 @@ public class ProducerService{
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response updateProducer(
+            @CookieParam("userRole") String userRole,
             @Valid @BeanParam Producer producer,
             @FormParam("name") String name
     ){
-        int httpStatus = 200;
-        Producer oldproducer = DataHandler.readProducerByName(producer.getName());
-        if(oldproducer != null){
-            oldproducer.setHeadquarter(producer.getHeadquarter());
-            oldproducer.setName(producer.getName());
-            DataHandler.updateProducer();
+        int httpstatus;
+        if(userRole == null || userRole.equals("guest") || userRole.equals("user")){
+            httpstatus = 403;
         }else{
-            httpStatus = 410;
+            httpstatus = 200;
+            Producer oldproducer = DataHandler.readProducerByName(producer.getName());
+            if(oldproducer != null){
+                oldproducer.setHeadquarter(producer.getHeadquarter());
+                oldproducer.setName(producer.getName());
+                DataHandler.updateProducer();
+            }else{
+                httpstatus = 410;
+            }
         }
-        return Response
-                .status(httpStatus)
+        Response response = Response
+                .status(httpstatus)
                 .entity("")
                 .build();
+        return response;
     }
 }
 
