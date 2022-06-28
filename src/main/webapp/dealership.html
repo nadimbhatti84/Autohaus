@@ -10,14 +10,23 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./js/login.js"></script>
     <style>
+
+        h1{
+            text-align: center;
+        }
+
         table, th, td {
-            border:1px solid black;
+            border: 1px solid black;
             border-collapse: collapse;
         }
 
+        td{
+            text-align: center;
+        }
+
         table{
-            width: 100%;
-            margin-top: 40px;
+            width: 90vw;
+            margin: 40px;
         }
     </style>
 </head>
@@ -43,7 +52,8 @@
 
             (function tableHead(){
                 const tr = createEL(),
-                    keys = Object.keys(data[0]).map((e)=> [...e].map((el, i)=> i== 0 ? el.toUpperCase(): el ).toString().replaceAll(",", ""));
+                    keys = Object.keys(data[0]).map((e)=> [...e].map((el, i)=> i== 0 ? el.toUpperCase(): el ).toString(
+                    ).replaceAll(",", ""));
 
                 for (const key of keys) {
                     const th = createEL("th");

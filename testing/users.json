@@ -1,0 +1,20 @@
+[
+    {
+        "userUUID": "7c7ea8ed-2f4a-4943-9a76-bd19bdf984cf",
+        "username": "nadim",
+        "role": "admin",
+        "password": "geheim"   
+    },
+    {
+        "userUUID": "7c7ea7ed-4f4a-4543-9a76-bd19ddf984cf",
+        "username": "ertan",
+        "role": "user",
+        "password": "geheim"   
+    },
+    {
+        "userUUID": "7c5ea6ed-3f4a-4546-7a76-bd19ddf984cf",
+        "username": "morn",
+        "role": "guest",
+        "password": "geheim"   
+    }
+]

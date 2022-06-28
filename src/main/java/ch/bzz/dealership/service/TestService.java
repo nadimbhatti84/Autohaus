@@ -14,6 +14,9 @@ import java.nio.file.Paths;
 
 /**
  * test service
+ * @author Nadim Bhatti
+ * @since 28-06-2022
+ * @version 1.0
  */
 @Path("test")
 public class TestService {
@@ -61,6 +64,14 @@ public class TestService {
             byte[] herstellerJSON = Files.readAllBytes(Paths.get(folder, "data backup", filename));
             fileOutputStream = new FileOutputStream(Config.getProperty("herstellerJSON"));
             fileOutputStream.write(herstellerJSON);
+
+            path = Paths.get(Config.getProperty("userJSON"));
+            filename = path.getFileName().toString();
+            folder = path.getParent().toString();
+
+            byte[] userJSON = Files.readAllBytes(Paths.get(folder, "data backup", filename));
+            fileOutputStream = new FileOutputStream(Config.getProperty("userJSON"));
+            fileOutputStream.write(userJSON);
 
 
         } catch (IOException e) {

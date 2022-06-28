@@ -10,6 +10,12 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class that reads, writes and finds users
+ * @author Nadim Bhatti
+ * @since 28-06-2022
+ * @version 1.0
+ */
 public class UserData {
     private static final UserData instance = new UserData();
 
@@ -17,7 +23,7 @@ public class UserData {
      * finds a user by its username and password
      * @param username
      * @param password
-     * @return
+     * @return user
      */
     public static User findUser(String username, String password){
         User user = new User();
@@ -34,7 +40,7 @@ public class UserData {
 
     /**
      * reads the json file as a list
-     * @return
+     * @return user list
      */
     private static List<User> readJson(){
         List<User> userList = new ArrayList<>();

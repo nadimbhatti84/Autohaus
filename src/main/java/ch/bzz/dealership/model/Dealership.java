@@ -7,6 +7,12 @@ import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
 import java.util.Vector;
 
+/**
+ * Model class for a dealership
+ * @author Nadim Bhatti
+ * @since 28-06-2022
+ * @version 1.0
+ */
 public class Dealership {
     @JsonIgnore
     private Vector<Car> allCars;

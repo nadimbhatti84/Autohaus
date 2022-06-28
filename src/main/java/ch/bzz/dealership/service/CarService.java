@@ -14,9 +14,20 @@ import java.util.List;
 
 import static javax.ws.rs.core.MediaType.*;
 
+/**
+ * ALl the Services available for the cars
+ * @author Nadim Bhatti
+ * @since 28-06-2022
+ * @version 1.0
+ */
 @Path("car")
 public class CarService {
 
+    /**
+     * lists all the cars
+     * @param userRole
+     * @return response
+     */
     @Path("list")
     @GET
     @Produces(APPLICATION_JSON)
@@ -42,7 +53,7 @@ public class CarService {
     /**
      * reads a car by its Serial Number
      * @param serialNum
-     * @return
+     * @return response
      * @throws IllegalArgumentException
      */
     @Path("read")
@@ -81,7 +92,7 @@ public class CarService {
     /**
      * deletes a car identified by its serial number
      * @param serialNum
-     * @return
+     * @return response
      */
     @DELETE
     @Path("delete")
@@ -110,7 +121,7 @@ public class CarService {
 
     /**
      * inserts a new car
-     * @return
+     * @return response
      */
     @POST
     @Path("create")

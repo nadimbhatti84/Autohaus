@@ -19,6 +19,9 @@ import java.util.List;
 
 /**
  * reads and writes the data in the JSON-files
+ * @author Nadim Bhatti
+ * @since 28-06-2022
+ * @version 1.0
  */
 public final class DataHandler {
     private static List<Car> carList;

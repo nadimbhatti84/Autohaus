@@ -1,5 +1,11 @@
 package ch.bzz.dealership.model;
 
+/**
+ * Model Class for a user
+ * @author Nadim Bhatti
+ * @since 28-06-2022
+ * @version 1.0
+ */
 public class User {
     private String userUUID;
     private String username;

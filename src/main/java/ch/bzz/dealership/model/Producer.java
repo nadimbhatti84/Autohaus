@@ -4,6 +4,12 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import javax.ws.rs.FormParam;
 
+/**
+ * Model class for a producer
+ * @author Nadim Bhatti
+ * @since 28-06-2022
+ * @version 1.0
+ */
 public class Producer {
     @FormParam("name")
     @Size(min = 1, max = 30)

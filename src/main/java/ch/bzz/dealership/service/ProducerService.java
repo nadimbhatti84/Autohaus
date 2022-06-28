@@ -14,8 +14,20 @@ import java.util.List;
 
 import static javax.ws.rs.core.MediaType.*;
 
+/**
+ * All Services available for the producers
+ * @author Nadim Bhatti
+ * @since 28-06-2022
+ * @version 1.0
+ */
 @Path("producer")
 public class ProducerService{
+
+    /**
+     * lists all producers
+     * @param userRole
+     * @return the response with the status and the list
+     */
     @Path("list")
     @GET
     @Produces(APPLICATION_JSON)
@@ -38,6 +50,13 @@ public class ProducerService{
     }
 
 
+    /**
+     * lists a single producer by its name
+     * @param userRole
+     * @param name
+     * @return the response with the status
+     * @throws IllegalArgumentException
+     */
     @Path("read")
     @GET
     @Produces(APPLICATION_JSON)
@@ -72,7 +91,7 @@ public class ProducerService{
     /**
      * deletes a producer identified by its Name
      * @param name
-     * @return
+     * @return the response with its status
      */
     @DELETE
     @Path("delete")
@@ -100,7 +119,7 @@ public class ProducerService{
 
     /**
      * inserts a new producer
-     * @return
+     * @return the response with its status
      */
     @Path("create")
     @POST
@@ -126,7 +145,7 @@ public class ProducerService{
     /**
      * updates a new producer
      * @param name
-     * @return
+     * @return the response with its status
      */
     @PUT
     @Path("update")

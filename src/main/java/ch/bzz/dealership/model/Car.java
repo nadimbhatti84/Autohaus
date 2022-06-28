@@ -5,6 +5,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.validation.constraints.*;
 import javax.ws.rs.FormParam;
 
+/**
+ * Model class for a car
+ * @author Nadim Bhatti
+ * @since 28-06-2022
+ * @version 1.0
+ */
 public class Car {
 
     @JsonIgnore

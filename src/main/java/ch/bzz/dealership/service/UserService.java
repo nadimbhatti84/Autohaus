@@ -11,8 +11,10 @@ import javax.ws.rs.core.Response;
 
 /**
  * services for authentication and authorization of users
+ * @author Nadim Bhatti
+ * @since 28-06-2022
+ * @version 1.0
  */
-
 @Path("user")
 public class UserService {
 

@@ -10,8 +10,10 @@ import java.util.Properties;
 
 /**
  * configure the web services and properties
+ * @author Nadim Bhatti
+ * @since 28-06-2022
+ * @version 1.0
  */
-
 @ApplicationPath("/resource")
 public class Config extends Application {
     private static final String PROPERTIES_PATH = "/home/bzz/webapp/autoList.properties";

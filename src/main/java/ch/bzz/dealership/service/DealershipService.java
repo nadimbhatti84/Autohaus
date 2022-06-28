@@ -14,8 +14,20 @@ import java.util.List;
 
 import static javax.ws.rs.core.MediaType.*;
 
+/**
+ * All Services available for the dealerships
+ * @author Nadim Bhatti
+ * @since 28-06-2022
+ * @version 1.0
+ */
 @Path("dealership")
 public class DealershipService {
+
+    /**
+     * lists all the dealerships
+     * @param userRole
+     * @return response
+     */
     @Path("list")
     @GET
     @Produces(APPLICATION_JSON)
@@ -41,7 +53,7 @@ public class DealershipService {
     /**
      * reads a dealership by its name
      * @param name
-     * @return
+     * @return response
      * @throws IllegalArgumentException
      */
     @Path("read")
@@ -79,7 +91,7 @@ public class DealershipService {
     /**
      * deletes an dealership identified by its name
      * @param name
-     * @return
+     * @return reponse
      */
     @DELETE
     @Path("delete")
@@ -135,7 +147,7 @@ public class DealershipService {
     /**
      * updates a new dealership
      * @param name
-     * @return
+     * @return response
      */
     @Path("update")
     @PUT
