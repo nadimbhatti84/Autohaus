@@ -37,7 +37,6 @@ public class UserService {
         }else{
             httpStatus = 200;
         }
-        assert user != null;
         NewCookie cookie = new NewCookie(
                 "userRole",
                 user.getRole(),
